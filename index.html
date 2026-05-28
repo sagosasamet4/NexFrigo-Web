@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexFrigo | Endüstriyel Soğutma ve İklimlendirme</title>
+    <!-- Tailwind CSS (Hızlı Tasarım Altyapısı) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #f3f4f6;
+        }
+        .nex-blue {
+            color: #3b82f6;
+        }
+        .bg-nex-blue {
+            background-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Navbar / Üst Menü -->
+    <nav class="border-b border-gray-800 bg-[#1a1a1a] bg-opacity-90 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gray-700 rounded text-blue-500 flex items-center justify-center font-bold text-xl">NF</div>
+                    <span class="font-extrabold text-2xl tracking-tight">Nex<span class="text-gray-400">Frigo</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#sistemler" class="text-gray-300 hover:text-white transition">Sistemler</a>
+                    <a href="#teknoloji" class="text-gray-300 hover:text-white transition">Teknoloji</a>
+                    <a href="#iletisim" class="bg-nex-blue text-white px-5 py-2 rounded-md font-semibold hover:bg-blue-600 transition">Hızlı Teklif</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Ana Karşılama Bölümü -->
+    <header class="relative py-32 flex items-center justify-center border-b border-gray-800 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900 via-gray-900 to-black"></div>
+        
+        <div class="max-w-4xl mx-auto text-center px-4 relative z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Kesintisiz Soğuk Zincir.<br>
+                <span class="nex-blue">Veriye Dayalı Çevik Çözümler.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                Hassasiyetle yönetilen endüstriyel soğutma, şoklama tünelleri ve akıllı iklimlendirme sistemleriyle geleceğin lojistik altyapısını kuruyoruz.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#iletisim" class="bg-nex-blue text-white px-8 py-4 rounded font-bold text-lg hover:bg-blue-600 transition shadow-lg shadow-blue-500/30">Projeye Başla</a>
+                <a href="#sistemler" class="bg-transparent border border-gray-600 text-gray-300 px-8 py-4 rounded font-bold text-lg hover:bg-gray-800 transition">Sistemleri İncele</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sistemler / Çözümler Bölümü -->
+    <section id="sistemler" class="py-24 bg-[#111]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Anahtar Teslim Sistemlerimiz</h2>
+                <p class="text-gray-500">Uluslararası standartlarda, endüstriyel soğutma ve havalandırma mühendisliği.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-[#1a1a1a] p-8 rounded-xl border border-gray-800 hover:border-blue-500 transition duration-300 group">
+                    <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <span class="text-2xl text-blue-500">❄️</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Soğuk Oda & Şoklama</h3>
+                    <p class="text-gray-400 text-sm">Modüler sandviç panel çözümleri ve eksi derecelere hızla inen yüksek performanslı şoklama tünelleri.</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-8 rounded-xl border border-gray-800 hover:border-blue-500 transition duration-300 group">
+                    <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <span class="text-2xl text-blue-500">⚙️</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Evaporatör & Kompresör</h3>
+                    <p class="text-gray-400 text-sm">Enerji verimliliği yüksek, aralıksız çalışmaya uygun endüstriyel soğutma grupları.</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-8 rounded-xl border border-gray-800 hover:border-blue-500 transition duration-300 group">
+                    <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <span class="text-2xl text-blue-500">🌐</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">IoT Uzaktan İzleme</h3>
+                    <p class="text-gray-400 text-sm">Akıllı sensörler sayesinde sistem sıcaklığını ve performans verilerini 7/24 telefonunuzdan izleyin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="iletisim" class="py-12 border-t border-gray-800 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-extrabold text-xl tracking-tight">Nex<span class="text-gray-500">Frigo</span></span>
+                <p class="text-gray-500 text-sm mt-2">Endüstriyel İklimlendirme Teknolojileri</p>
+            </div>
+            <div class="flex flex-col text-right">
+                <a href="mailto:info@nexfrigo.com" class="text-blue-500 hover:text-blue-400 font-semibold mb-1">info@nexfrigo.com</a>
+                <span class="text-gray-600 text-sm">&copy; 2026 NexFrigo. Tüm Hakları Saklıdır.</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
