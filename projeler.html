@@ -3,60 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeler ve Ürünler | NexFrigo</title>
+    <title>Portfolyo & Ürünler | NexFrigo</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style> body { font-family: 'Inter', sans-serif; background-color: #121212; color: #f3f4f6; } </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f5f5f7; } </style>
 </head>
-<body>
-    <nav class="border-b border-gray-800 bg-[#121212]/90 sticky top-0 z-50 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2">
-                <img src="nexfrigo logo.png" alt="NexFrigo" class="h-8">
-                <span class="font-extrabold text-xl text-white">NEX<span class="text-[#3b82f6]">FRIGO</span></span>
-            </a>
-            <div class="flex space-x-4 text-xs sm:text-sm">
-                <a href="index.html" class="text-gray-400 hover:text-white transition">Ana Sayfa</a>
-                <a href="hakkimizda.html" class="text-gray-400 hover:text-white transition">Hakkımızda</a>
-                <a href="surec.html" class="text-gray-400 hover:text-white transition">Süreç</a>
-                <a href="projeler.html" class="text-[#3b82f6] font-bold border-b-2 border-[#3b82f6]">Projeler</a>
-                <a href="iletisim.html" class="text-gray-400 hover:text-white transition">İletişim</a>
+<body class="antialiased">
+
+    <!-- ÜST MENÜ -->
+    <nav class="border-b border-zinc-800 bg-[#0d0d0d]/95 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+                    <img src="nexfrigo logo.png" alt="NexFrigo" class="h-9 w-auto">
+                    <span class="font-extrabold text-xl tracking-wider text-zinc-100">NEX<span class="text-[#3b82f6]">FRIGO</span></span>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <div class="flex space-x-6 text-sm font-medium">
+                        <a href="index.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+                        <a href="hakkimizda.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+                        <a href="surec.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Süreç" data-en="Process">Süreç</a>
+                        <a href="projeler.html" class="text-[#3b82f6] font-semibold border-b-2 border-[#3b82f6] pb-1" data-tr="Projeler" data-en="Projects">Projeler</a>
+                        <a href="iletisim.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="İletişim" data-en="Contact">İletişim</a>
+                    </div>
+                    <button onclick="toggleLanguage()" id="langBtn" class="border border-zinc-700 text-xs font-bold px-3 py-1.5 rounded-md text-zinc-300 transition">EN</button>
+                </div>
+
+                <div class="flex lg:hidden items-center gap-4">
+                    <button onclick="toggleLanguage()" id="langBtnMob" class="border border-zinc-700 text-xs font-bold px-2.5 py-1 rounded-md text-zinc-300">EN</button>
+                    <button onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
+        </div>
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-zinc-800 bg-[#0d0d0d] px-4 pt-4 pb-6 space-y-3">
+            <a href="index.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+            <a href="hakkimizda.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+            <a href="surec.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Süreç" data-en="Process">Süreç</a>
+            <a href="projeler.html" class="block text-[#3b82f6] font-bold text-base py-2" data-tr="Projeler" data-en="Projects">Projeler</a>
+            <a href="iletisim.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="İletişim" data-en="Contact">İletişim</a>
         </div>
     </nav>
 
-    <section class="py-24 max-w-7xl mx-auto px-4">
+    <!-- PORTFOLYO ALANI -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-extrabold text-white mb-4">Ürün Grubu ve <span class="text-[#3b82f6]">Proje Detayları</span></h2>
-            <p class="text-gray-400 text-sm">Üretim bandımızdan çıkan modülleri ve tamamlanan anahtar teslim sistemleri detaylarıyla görün.</p>
+            <span class="text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20" data-tr="Galeri" data-en="Gallery">Galeri</span>
+            <h2 class="text-4xl font-extrabold mt-3 mb-4 text-zinc-100" data-tr="Üretim ve Alan Çözümleri" data-en="Manufacturing & Site Solutions">Üretim ve Alan Çözümleri</h2>
+            <p class="text-zinc-500 text-sm max-w-md mx-auto" data-tr="Geliştirdiğimiz endüstriyel soğutma elemanlarını ve parça detaylarını yakından inceleyin." data-en="Closely examine the industrial refrigeration elements and parts details we develop.">Geliştirdiğimiz endüstriyel soğutma elemanlarını ve parça detaylarını yakından inceleyin.</p>
         </div>
 
-        <!-- Geniş Detaylı Izgara Yapısı -->
+        <!-- 4'lü Detaylı Parça / İş Matrisi -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-[#1a1a1a] border border-gray-800 rounded-2xl overflow-hidden flex flex-col md:flex-row">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80" class="w-full md:w-48 h-48 md:h-auto object-cover" alt="Proje">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">Lojistik Merkezi Soğuk Depo Kurulumu</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">Uluslararası gıda sevkiyatı yapan bir firma için tasarlanan +4°C ve -18°C kombine saklama alanları montajı.</p>
-                    <span class="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded border border-emerald-500/20">Tamamlandı</span>
+            
+            <!-- İş 1 -->
+            <div class="bg-[#121212] border border-zinc-900 rounded-3xl overflow-hidden flex flex-col sm:flex-row hover:border-zinc-800 transition duration-300">
+                <div class="w-full sm:w-48 h-48 sm:h-auto overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover filter brightness-90 contrast-110" alt="Depo">
+                </div>
+                <div class="p-6 flex flex-col justify-center">
+                    <span class="text-[#3b82f6] text-[10px] font-bold uppercase tracking-widest mb-1" data-tr="Anahtar Teslim" data-en="Turnkey Setup">Anahtar Teslim</span>
+                    <h3 class="text-lg font-bold text-zinc-100 mb-2" data-tr="Endüstriyel Depolama Odaları" data-en="Industrial Cold Rooms">Endüstriyel Depolama Odaları</h3>
+                    <p class="text-zinc-400 text-xs leading-relaxed" data-tr="Geniş hacimli lojistik merkezleri için projelendirilen, poliüretan sandviç panellerle çevrili yüksek yalıtımlı alan tasarımları." data-en="High-insulation layout structures framed with polyurethane sandwich panels projected for large-volume logistics facilities.">Geniş hacimli lojistik merkezleri için projelendirilen, poliüretan sandviç panellerle çevrili yüksek yalıtımlı alan tasarımları.</p>
                 </div>
             </div>
 
-            <div class="bg-[#1a1a1a] border border-gray-800 rounded-2xl overflow-hidden flex flex-col md:flex-row">
-                <img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=400&q=80" class="w-full md:w-48 h-48 md:h-auto object-cover" alt="Proje">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">Şoklama Kabini ve Entegre Sistemler</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">Deniz ürünleri işleme tesisi için özel olarak üretilen, -40°C sıcaklığa 45 dakikada ulaşabilen şoklama tüneli.</p>
-                    <span class="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded border border-emerald-500/20">Tamamlandı</span>
+            <!-- İş 2 -->
+            <div class="bg-[#121212] border border-zinc-900 rounded-3xl overflow-hidden flex flex-col sm:flex-row hover:border-zinc-800 transition duration-300">
+                <div class="w-full sm:w-48 h-48 sm:h-auto overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover filter brightness-90 contrast-110" alt="Tünel">
+                </div>
+                <div class="p-6 flex flex-col justify-center">
+                    <span class="text-[#3b82f6] text-[10px] font-bold uppercase tracking-widest mb-1" data-tr="Şoklama Sistemleri" data-en="Freezing Units">Şoklama Sistemleri</span>
+                    <h3 class="text-lg font-bold text-zinc-100 mb-2" data-tr="Hızlı Şoklama Tünelleri (-40°C)" data-en="Blast Freezing Tunnels (-40°C)">Hızlı Şoklama Tünelleri (-40°C)</h3>
+                    <p class="text-zinc-400 text-xs leading-relaxed" data-tr="Gıda ürünlerinin moleküler yapısını bozmadan, çok kısa sürede derin dondurma imkanı sağlayan yüksek kapasiteli evaporatör entegrasyonu." data-en="High-capacity evaporator integration enabling deep freeze cycles within short windows without breaking molecular food balance.">Gıda ürünlerinin moleküler yapısını bozmadan, çok kısa sürede derin dondurma imkanı sağlayan yüksek kapasiteli evaporatör entegrasyonu.</p>
                 </div>
             </div>
+
+            <!-- İş 3 -->
+            <div class="bg-[#121212] border border-zinc-900 rounded-3xl overflow-hidden flex flex-col sm:flex-row hover:border-zinc-800 transition duration-300">
+                <div class="w-full sm:w-48 h-48 sm:h-auto overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover filter brightness-90 contrast-110" alt="Konteyner">
+                </div>
+                <div class="p-6 flex flex-col justify-center">
+                    <span class="text-[#3b82f6] text-[10px] font-bold uppercase tracking-widest mb-1" data-tr="Mobil Çözümler" data-en="Mobile Solutions">Mobil Çözümler</span>
+                    <h3 class="text-lg font-bold text-zinc-100 mb-2" data-tr="Konteyner Tipi Soğuk Depolar" data-en="Container Cold Storage">Konteyner Tipi Soğuk Depolar</h3>
+                    <p class="text-zinc-400 text-xs leading-relaxed" data-tr="Taşınabilir lojistik gereksinimleri için özel olarak modifiye edilen, her türlü hava koşuluna dayanıklı tak-çalıştır konteyner üniteleri." data-en="Weatherproof plug-and-play container environments custom-modified for high-mobility logistical cold storage needs.">Taşınabilir lojistik gereksinimleri için özel olarak modifiye edilen, her türlü hava koşuluna dayanıklı tak-çalıştır konteyner üniteleri.</p>
+                </div>
+            </div>
+
+            <!-- İş 4 -->
+            <div class="bg-[#121212] border border-zinc-900 rounded-3xl overflow-hidden flex flex-col sm:flex-row hover:border-zinc-800 transition duration-300">
+                <div class="w-full sm:w-48 h-48 sm:h-auto overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover filter brightness-90 contrast-110" alt="Komponent">
+                </div>
+                <div class="p-6 flex flex-col justify-center">
+                    <span class="text-[#3b82f6] text-[10px] font-bold uppercase tracking-widest mb-1" data-tr="Komponent İmalatı" data-en="Component Building">Komponent İmalatı</span>
+                    <h3 class="text-lg font-bold text-zinc-100 mb-2" data-tr="Ağır Sanayi Kondanser Grupları" data-en="Heavy Duty Condensing Units">Ağır Sanayi Kondanser Grupları</h3>
+                    <p class="text-zinc-400 text-xs leading-relaxed" data-tr="Yüksek ortam sıcaklıklarında kesintisiz performans gösteren, dış ünite ses yalıtım kabinli merkezi sistem motor üniteleri." data-en="Central system motor units operating seamlessly in high ambient settings, engineered with acoustic insulation covers.">Yüksek ortam sıcaklıklarında kesintisiz performans gösteren, dış ünite ses yalıtım kabinli merkezi sistem motor üniteleri.</p>
+                </div>
+            </div>
+
         </div>
     </section>
-<script>
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
 
+    <footer class="py-12 border-t border-zinc-900 bg-[#060606] flex justify-center items-center gap-3">
+        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-6 opacity-20">
+        <span class="text-zinc-600 text-xs">&copy; 2026 NexFrigo.</span>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
         let currentLang = localStorage.getItem('lang') || 'tr';
         function updateDOM() {
             document.querySelectorAll('[data-tr]').forEach(element => {
@@ -65,11 +126,7 @@
             document.getElementById('langBtn').textContent = currentLang === 'tr' ? 'EN' : 'TR';
             document.getElementById('langBtnMob').textContent = currentLang === 'tr' ? 'EN' : 'TR';
         }
-        function toggleLanguage() {
-            currentLang = currentLang === 'tr' ? 'en' : 'tr';
-            localStorage.setItem('lang', currentLang);
-            updateDOM();
-        }
+        function toggleLanguage() { currentLang = currentLang === 'tr' ? 'en' : 'tr'; localStorage.setItem('lang', currentLang); updateDOM(); }
         window.addEventListener('DOMContentLoaded', updateDOM);
     </script>
 </body>
