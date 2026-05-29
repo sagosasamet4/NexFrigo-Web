@@ -3,107 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexFrigo | Endüstriyel Soğutma ve İklimlendirme</title>
+    <title>NexFrigo | Endüstriyel Soğutma Sistemleri</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #121212; color: #f3f4f6; }
+        .slide { display: none; transition: opacity 0.5s ease-in-out; }
+        .slide.active { display: block; }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- ÜST MENÜ (Yeni Sayfalar Entegre Edildi) -->
     <nav class="border-b border-gray-800 bg-[#121212]/90 sticky top-0 z-50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20 gap-4">
-                
-                <a href="index.html" class="flex items-center gap-2 md:gap-3 flex-shrink-0">
+                <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
                     <img src="nexfrigo logo.png" alt="NexFrigo Amblem" class="h-8 w-auto md:h-10 object-contain">
-                    <span class="font-extrabold text-xl md:text-2xl tracking-wider text-white whitespace-nowrap">
-                        NEX<span class="text-[#3b82f6]">FRIGO</span>
-                    </span>
+                    <span class="font-extrabold text-xl tracking-wider text-white">NEX<span class="text-[#3b82f6]">FRIGO</span></span>
                 </a>
                 
-                <div class="flex items-center space-x-3 sm:space-x-6 text-xs sm:text-sm md:text-base flex-shrink-0">
+                <!-- Genişletilmiş Menü Linkleri -->
+                <div class="flex items-center space-x-3 sm:space-x-4 md:space-x-6 text-xs sm:text-sm flex-shrink-0">
                     <a href="index.html" class="text-[#3b82f6] font-bold border-b-2 border-[#3b82f6] pb-1">Ana Sayfa</a>
+                    <a href="hakkimizda.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">Hakkımızda</a>
                     <a href="surec.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">Süreç</a>
+                    <a href="projeler.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">Projeler</a>
                     <a href="iletisim.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">İletişim</a>
                 </div>
-
             </div>
         </div>
     </nav>
 
-    <header class="relative py-28 md:py-40 flex items-center justify-center overflow-hidden border-b border-gray-800">
-        <div class="absolute inset-0 opacity-10 mix-blend-overlay">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80" alt="Mühendislik Altyapısı" class="w-full h-full object-cover">
-        </div>
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-950/30 via-[#121212] to-black opacity-95"></div>
+    <!-- DİNAMİK KAYAR EKRAN (SLIDER) BÖLÜMÜ -->
+    <header class="relative h-[500px] md:h-[650px] bg-black overflow-hidden border-b border-gray-800">
         
-        <div class="max-w-4xl mx-auto text-center px-4 relative z-10">
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                Kesintisiz Soğuk Zincir.<br>
-                <span class="text-[#3b82f6]">Endüstriyel Çözümler.</span>
-            </h1>
-            <p class="text-base md:text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
-                Hassasiyetle yönetilen endüstriyel soğutma, şoklama tünelleri ve akıllı iklimlendirme sistemleriyle geleceğin lojistik altyapısını kuruyoruz.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 px-6 sm:px-0">
-                <a href="surec.html" class="bg-[#3b82f6] text-white px-8 py-4 rounded font-bold text-center hover:bg-blue-600 transition shadow-lg shadow-blue-500/20">Süreci İnceleyin</a>
-                <a href="iletisim.html" class="border border-gray-700 text-gray-300 px-8 py-4 rounded font-bold text-center hover:bg-gray-800 transition">Bizimle İletişime Geçin</a>
+        <!-- Slide 1: Endüstriyel Tesis -->
+        <div class="slide active absolute inset-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-30 filter brightness-75" alt="Soğuk Depolama">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
+            <div class="absolute inset-0 flex items-center justify-center text-center p-4">
+                <div class="max-w-3xl">
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Modüler Soğuk Hava Depoları</h2>
+                    <p class="text-sm md:text-base text-gray-300 max-w-xl mx-auto">Sıfır ısı köprüsü ve yüksek yoğunluklu poliüretan panellerle maksimum enerji tasarrufu.</p>
+                </div>
             </div>
         </div>
+
+        <!-- Slide 2: Şoklama Tünelleri -->
+        <div class="slide absolute inset-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-25 filter brightness-75" alt="Şoklama Tünelleri">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
+            <div class="absolute inset-0 flex items-center justify-center text-center p-4">
+                <div class="max-w-3xl">
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-[#3b82f6] mb-4">Endüstriyel Şoklama Tünelleri</h2>
+                    <p class="text-sm md:text-base text-gray-300 max-w-xl mx-auto">Gıda güvenliği standartlarında, çok kısa sürede hedef dereceye ulaşan derin dondurucu sistemler.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Konteyner Sistemleri -->
+        <div class="slide absolute inset-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-25 filter brightness-75" alt="Mobil Soğutma">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
+            <div class="absolute inset-0 flex items-center justify-center text-center p-4">
+                <div class="max-w-3xl">
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Mobil Konteyner Soğutma</h2>
+                    <p class="text-sm md:text-base text-gray-300 max-w-xl mx-auto">İstediğiniz her konuma taşınabilir, zorlu iklim şartlarına dayanıklı tak-çalıştır soğutma üniteleri.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Okları -->
+        <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 border border-gray-800 text-white p-3 rounded-full hover:bg-[#3b82f6] transition z-20">❮</button>
+        <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 border border-gray-800 text-white p-3 rounded-full hover:bg-[#3b82f6] transition z-20">❯</button>
     </header>
 
+    <!-- ETKİLEYİCİ PORTFOLYO / PARÇA PARÇA İŞ SUNUMU -->
     <section class="py-24 bg-[#0b0b0b]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Mühendislik & İmalat</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold mt-3 mb-4 text-white">Ürün ve Hizmet Altyapımız</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-sm md:text-base">Termodinamik standartlara uygun, yüksek yalıtımlı ve ağır endüstriyel şartlara dayanıklı modüler yapılar tasarlıyoruz.</p>
+                <span class="text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Üretim Kataloğumuz</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-3 mb-4 text-white">Neler Üretiyoruz?</h2>
+                <p class="text-gray-500 max-w-xl mx-auto text-sm">Sistemlerimizi oluşturan mühendislik harikası bileşenleri parça parça inceleyin.</p>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <!-- 3'lü Proje / Parça Vitrini -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="lg:col-span-7 relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                    <div class="relative bg-[#121212] rounded-2xl p-2 border border-gray-800 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=1000&q=80" alt="Endüstriyel Tesis ve Yapı Altyapısı" class="rounded-xl w-full h-[350px] md:h-[450px] object-cover filter grayscale contrast-125 brightness-90 hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute bottom-6 left-6 bg-black/80 backdrop-blur-md border border-gray-800 p-4 rounded-xl max-w-xs hidden sm:block">
-                            <p class="text-xs text-[#3b82f6] font-bold uppercase tracking-wider mb-1">Teknik Standart</p>
-                            <p class="text-xs text-gray-400 leading-relaxed">Poliüretan enjeksiyonlu paneller ile maksimum sızdırmazlık ve sıfır ısı köprüsü.</p>
-                        </div>
+                <!-- Parça 1 -->
+                <div class="bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden group hover:border-[#3b82f6] transition-all duration-300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Evaporatör">
+                        <span class="absolute top-4 left-4 bg-[#3b82f6] text-white text-xs font-bold px-3 py-1 rounded-full">Ünite</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Endüstriyel Evaporatörler</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Yüksek ısı transfer yüzeyine sahip, buzlanma geciktirici kanat yapısıyla donatılmış iç oda soğutucuları.</p>
+                        <a href="projeler.html" class="text-[#3b82f6] text-xs font-bold uppercase tracking-wider hover:underline inline-flex items-center gap-1">Detayları Gör →</a>
                     </div>
                 </div>
-                
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="p-6 bg-[#121212] border border-gray-800 rounded-2xl hover:border-gray-700 transition">
-                        <div class="flex gap-4 items-start">
-                            <div class="p-3 bg-blue-500/10 text-[#3b82f6] rounded-xl text-xl font-bold">01</div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-2">Modüler Sandviç Paneller</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed">Konteyner ve sabit yapılarda yüksek yoğunluklu poliüretan dolgulu, kilitli sistem duvar ve tavan panelleri.</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="p-6 bg-[#121212] border border-gray-800 rounded-2xl hover:border-gray-700 transition">
-                        <div class="flex gap-4 items-start">
-                            <div class="p-3 bg-blue-500/10 text-[#3b82f6] rounded-xl text-xl font-bold">02</div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-2">Ağır Hizmet Soğutma Grupları</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed">Tropikal iklim şartlarında dahi yüksek performans gösteren kompresör üniteleri ve akıllı evaporatör tasarımları.</p>
-                            </div>
-                        </div>
+                <!-- Parça 2 -->
+                <div class="bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden group hover:border-[#3b82f6] transition-all duration-300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Sandviç Panel">
+                        <span class="absolute top-4 left-4 bg-[#3b82f6] text-white text-xs font-bold px-3 py-1 rounded-full">Yalıtım</span>
                     </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Kilitli Duvar Panelleri</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">42 kg/m³ yoğunlukta poliüretan enjeksiyonlu, hijyenik yüzey kaplamalı modüler duvar elemanları.</p>
+                        <a href="projeler.html" class="text-[#3b82f6] text-xs font-bold uppercase tracking-wider hover:underline inline-flex items-center gap-1">Detayları Gör →</a>
+                    </div>
+                </div>
 
-                    <div class="p-6 bg-[#121212] border border-gray-800 rounded-2xl hover:border-gray-700 transition">
-                        <div class="flex gap-4 items-start">
-                            <div class="p-3 bg-blue-500/10 text-[#3b82f6] rounded-xl text-xl font-bold">03</div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-2">Otomasyon & İzleme Sistemleri</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed">Sıcaklık ve nem dengesini anlık olarak kontrol altında tutan, uzaktan izleme destekli dijital kontrol panelleri.</p>
-                            </div>
-                        </div>
+                <!-- Parça 3 -->
+                <div class="bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden group hover:border-[#3b82f6] transition-all duration-300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Kompresör">
+                        <span class="absolute top-4 left-4 bg-[#3b82f6] text-white text-xs font-bold px-3 py-1 rounded-full">Güç Ünitesi</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Merkezi Kondanser Grupları</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Dış ortam ses yalıtımlı, çoklu kompresör kontrolüne izin veren akıllı invertör altyapılı ana motorlar.</p>
+                        <a href="projeler.html" class="text-[#3b82f6] text-xs font-bold uppercase tracking-wider hover:underline inline-flex items-center gap-1">Detayları Gör →</a>
                     </div>
                 </div>
 
@@ -111,17 +134,34 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="py-12 border-t border-gray-800 bg-[#0a0a0a]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
-                <img src="nexfrigo logo.png" alt="NexFrigo Amblem" class="h-8 w-auto opacity-40">
-                <span class="font-extrabold text-lg text-gray-600 tracking-wider">NEXFRIGO</span>
+                <img src="nexfrigo logo.png" alt="NexFrigo" class="h-8 opacity-40">
+                <span class="font-extrabold text-gray-600 tracking-wider">NEXFRIGO</span>
             </div>
-            <div class="text-gray-600 text-sm">
-                &copy; 2026 NexFrigo. Tüm Hakları Saklıdır.
-            </div>
+            <p class="text-gray-600 text-sm">&copy; 2026 NexFrigo. Tüm Hakları Saklıdır.</p>
         </div>
     </footer>
 
+    <!-- SLIDER JAVASCRIPT KODU -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function moveSlide(step) {
+            showSlide(currentSlide + step);
+        }
+
+        // Otomatik kayma (Her 5 saniyede bir değiştirir)
+        setInterval(() => { moveSlide(1); }, 5000);
+    </script>
 </body>
 </html>
