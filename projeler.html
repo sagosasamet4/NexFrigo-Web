@@ -52,5 +52,25 @@
             </div>
         </div>
     </section>
+<script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        let currentLang = localStorage.getItem('lang') || 'tr';
+        function updateDOM() {
+            document.querySelectorAll('[data-tr]').forEach(element => {
+                element.textContent = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-tr');
+            });
+            document.getElementById('langBtn').textContent = currentLang === 'tr' ? 'EN' : 'TR';
+            document.getElementById('langBtnMob').textContent = currentLang === 'tr' ? 'EN' : 'TR';
+        }
+        function toggleLanguage() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            localStorage.setItem('lang', currentLang);
+            updateDOM();
+        }
+        window.addEventListener('DOMContentLoaded', updateDOM);
+    </script>
 </body>
 </html>
