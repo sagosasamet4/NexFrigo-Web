@@ -5,163 +5,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexFrigo | Endüstriyel Soğutma Sistemleri</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #121212; color: #f3f4f6; }
-        .slide { display: none; transition: opacity 0.5s ease-in-out; }
+        body { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f5f5f7; }
+        .slide { display: none; transition: opacity 0.6s ease-in-out; }
         .slide.active { display: block; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- ÜST MENÜ (Yeni Sayfalar Entegre Edildi) -->
-    <nav class="border-b border-gray-800 bg-[#121212]/90 sticky top-0 z-50 backdrop-blur-md">
+    <nav class="border-b border-zinc-800 bg-[#0d0d0d]/95 sticky top-0 z-50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 gap-4">
-                <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
-                    <img src="nexfrigo logo.png" alt="NexFrigo Amblem" class="h-8 w-auto md:h-10 object-contain">
-                    <span class="font-extrabold text-xl tracking-wider text-white">NEX<span class="text-[#3b82f6]">FRIGO</span></span>
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+                    <img src="nexfrigo logo.png" alt="NexFrigo" class="h-9 w-auto object-contain">
+                    <span class="font-extrabold text-xl tracking-wider text-zinc-100">NEX<span class="text-[#3b82f6]">FRIGO</span></span>
                 </a>
                 
-                <!-- Genişletilmiş Menü Linkleri -->
-                <div class="flex items-center space-x-3 sm:space-x-4 md:space-x-6 text-xs sm:text-sm flex-shrink-0">
-                    <a href="index.html" class="text-[#3b82f6] font-bold border-b-2 border-[#3b82f6] pb-1">Ana Sayfa</a>
-                    <a href="hakkimizda.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">Hakkımızda</a>
-                    <a href="surec.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">Süreç</a>
-                    <a href="projeler.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">Projeler</a>
-                    <a href="iletisim.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">İletişim</a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <div class="flex space-x-6 text-sm font-medium">
+                        <a href="index.html" class="text-[#3b82f6] font-semibold border-b-2 border-[#3b82f6] pb-1" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+                        <a href="hakkimizda.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+                        <a href="surec.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Süreç" data-en="Process">Süreç</a>
+                        <a href="projeler.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Projeler" data-en="Projects">Projeler</a>
+                        <a href="iletisim.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="İletişim" data-en="Contact">İletişim</a>
+                    </div>
+                    
+                    <button onclick="toggleLanguage()" id="langBtn" class="border border-zinc-700 hover:border-[#3b82f6] text-xs font-bold px-3 py-1.5 rounded-md text-zinc-300 hover:text-white transition">
+                        EN
+                    </button>
                 </div>
+
+                <div class="flex lg:hidden items-center gap-4">
+                    <button onclick="toggleLanguage()" id="langBtnMob" class="border border-zinc-700 text-xs font-bold px-2.5 py-1 rounded-md text-zinc-300">
+                        EN
+                    </button>
+                    
+                    <button onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-white focus:outline-none p-1">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+
             </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-zinc-800 bg-[#0d0d0d] px-4 pt-4 pb-6 space-y-3 shadow-2xl">
+            <a href="index.html" class="block text-[#3b82f6] font-bold text-base py-2" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+            <a href="hakkimizda.html" class="block text-zinc-400 hover:text-zinc-100 font-medium text-base py-2" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+            <a href="surec.html" class="block text-zinc-400 hover:text-zinc-100 font-medium text-base py-2" data-tr="Süreç" data-en="Process">Süreç</a>
+            <a href="projeler.html" class="block text-zinc-400 hover:text-zinc-100 font-medium text-base py-2" data-tr="Projeler" data-en="Projects">Projeler</a>
+            <a href="iletisim.html" class="block text-zinc-400 hover:text-zinc-100 font-medium text-base py-2" data-tr="İletişim" data-en="Contact">İletişim</a>
         </div>
     </nav>
 
-    <!-- DİNAMİK KAYAR EKRAN (SLIDER) BÖLÜMÜ -->
-    <header class="relative h-[500px] md:h-[650px] bg-black overflow-hidden border-b border-gray-800">
-        
-        <!-- Slide 1: Endüstriyel Tesis -->
+    <header class="relative h-[500px] md:h-[600px] bg-black overflow-hidden border-b border-zinc-900">
         <div class="slide active absolute inset-0 w-full h-full">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-30 filter brightness-75" alt="Soğuk Depolama">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-25 filter brightness-75" alt="Soğuk Hava Deposu">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
             <div class="absolute inset-0 flex items-center justify-center text-center p-4">
                 <div class="max-w-3xl">
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Modüler Soğuk Hava Depoları</h2>
-                    <p class="text-sm md:text-base text-gray-300 max-w-xl mx-auto">Sıfır ısı köprüsü ve yüksek yoğunluklu poliüretan panellerle maksimum enerji tasarrufu.</p>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-zinc-100 mb-4" data-tr="Modüler Soğuk Hava Depoları" data-en="Modular Cold Storage Rooms">Modüler Soğuk Hava Depoları</h2>
+                    <p class="text-sm md:text-base text-zinc-400 max-w-xl mx-auto" data-tr="Sıfır ısı köprüsü ve yüksek yoğunluklu poliüretan panellerle maksimum enerji tasarrufu." data-en="Maximum energy saving with zero thermal bridge and high-density polyurethane panels.">Sıfır ısı köprüsü ve yüksek yoğunluklu poliüretan panellerle maksimum enerji tasarrufu.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 2: Şoklama Tünelleri -->
         <div class="slide absolute inset-0 w-full h-full">
-            <img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-25 filter brightness-75" alt="Şoklama Tünelleri">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
+            <img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-20 filter brightness-75" alt="Şoklama">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
             <div class="absolute inset-0 flex items-center justify-center text-center p-4">
                 <div class="max-w-3xl">
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-[#3b82f6] mb-4">Endüstriyel Şoklama Tünelleri</h2>
-                    <p class="text-sm md:text-base text-gray-300 max-w-xl mx-auto">Gıda güvenliği standartlarında, çok kısa sürede hedef dereceye ulaşan derin dondurucu sistemler.</p>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-[#3b82f6] mb-4" data-tr="Endüstriyel Şoklama Tünelleri" data-en="Industrial Blast Freezers">Endüstriyel Şoklama Tünelleri</h2>
+                    <p class="text-sm md:text-base text-zinc-400 max-w-xl mx-auto" data-tr="Gıda güvenliği standartlarında, çok kısa sürede derin dondurma teknolojisi." data-en="Deep freezing technology in a very short time under food safety standards.">Gıda güvenliği standartlarında, çok kısa sürede derin dondurma teknolojisi.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 3: Konteyner Sistemleri -->
-        <div class="slide absolute inset-0 w-full h-full">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-25 filter brightness-75" alt="Mobil Soğutma">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-center p-4">
-                <div class="max-w-3xl">
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Mobil Konteyner Soğutma</h2>
-                    <p class="text-sm md:text-base text-gray-300 max-w-xl mx-auto">İstediğiniz her konuma taşınabilir, zorlu iklim şartlarına dayanıklı tak-çalıştır soğutma üniteleri.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slider Okları -->
-        <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 border border-gray-800 text-white p-3 rounded-full hover:bg-[#3b82f6] transition z-20">❮</button>
-        <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 border border-gray-800 text-white p-3 rounded-full hover:bg-[#3b82f6] transition z-20">❯</button>
+        <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 border border-zinc-800 text-zinc-300 p-2.5 rounded-full hover:bg-[#3b82f6] hover:text-white transition z-20">❮</button>
+        <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 border border-zinc-800 text-zinc-300 p-2.5 rounded-full hover:bg-[#3b82f6] hover:text-white transition z-20">❯</button>
     </header>
 
-    <!-- ETKİLEYİCİ PORTFOLYO / PARÇA PARÇA İŞ SUNUMU -->
-    <section class="py-24 bg-[#0b0b0b]">
+    <section class="py-24 bg-[#080808]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Üretim Kataloğumuz</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold mt-3 mb-4 text-white">Neler Üretiyoruz?</h2>
-                <p class="text-gray-500 max-w-xl mx-auto text-sm">Sistemlerimizi oluşturan mühendislik harikası bileşenleri parça parça inceleyin.</p>
+                <span class="text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20" data-tr="Üretim Kataloğumuz" data-en="Production Catalog">Üretim Kataloğumuz</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-3 mb-4 text-zinc-100" data-tr="Neler Üretiyoruz?" data-en="What Do We Manufacture?">Neler Üretiyoruz?</h2>
+                <p class="text-zinc-500 max-w-xl mx-auto text-sm" data-tr="Sistemlerimizi oluşturan mühendislik harikası bileşenleri parça parça inceleyin." data-en="Examine the engineering marvel components that build up our cooling systems piece by piece.">Sistemlerimizi oluşturan mühendislik harikası bileşenleri parça parça inceleyin.</p>
             </div>
 
-            <!-- 3'lü Proje / Parça Vitrini -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Parça 1 -->
-                <div class="bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden group hover:border-[#3b82f6] transition-all duration-300">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Evaporatör">
-                        <span class="absolute top-4 left-4 bg-[#3b82f6] text-white text-xs font-bold px-3 py-1 rounded-full">Ünite</span>
+                <div class="bg-[#121212] border border-zinc-900 rounded-2xl overflow-hidden group hover:border-[#3b82f6] transition-all duration-300">
+                    <div class="h-52 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-102 transition duration-500" alt="Evaporatör">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Endüstriyel Evaporatörler</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Yüksek ısı transfer yüzeyine sahip, buzlanma geciktirici kanat yapısıyla donatılmış iç oda soğutucuları.</p>
-                        <a href="projeler.html" class="text-[#3b82f6] text-xs font-bold uppercase tracking-wider hover:underline inline-flex items-center gap-1">Detayları Gör →</a>
+                        <h3 class="text-lg font-bold text-zinc-100 mb-2" data-tr="Endüstriyel Evaporatörler" data-en="Industrial Evaporators">Endüstriyel Evaporatörler</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-4" data-tr="Yüksek ısı transfer yüzeyine sahip, buzlanma geciktirici iç oda soğutucuları." data-en="Indoor room coolers featuring high heat transfer surfaces and advanced frost-retarding fin designs.">Yüksek ısı transfer yüzeyine sahip, buzlanma geciktirici iç oda soğutucuları.</p>
+                        <a href="projeler.html" class="text-[#3b82f6] text-xs font-bold tracking-wider hover:underline" data-tr="Detayları Gör →" data-en="View Details →">Detayları Gör →</a>
                     </div>
                 </div>
 
-                <!-- Parça 2 -->
-                <div class="bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden group hover:border-[#3b82f6] transition-all duration-300">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Sandviç Panel">
-                        <span class="absolute top-4 left-4 bg-[#3b82f6] text-white text-xs font-bold px-3 py-1 rounded-full">Yalıtım</span>
+                <div class="bg-[#121212] border border-zinc-900 rounded-2xl overflow-hidden group hover:border-[#3b82f6] transition-all duration-300">
+                    <div class="h-52 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-102 transition duration-500" alt="Sandviç Panel">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Kilitli Duvar Panelleri</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">42 kg/m³ yoğunlukta poliüretan enjeksiyonlu, hijyenik yüzey kaplamalı modüler duvar elemanları.</p>
-                        <a href="projeler.html" class="text-[#3b82f6] text-xs font-bold uppercase tracking-wider hover:underline inline-flex items-center gap-1">Detayları Gör →</a>
+                        <h3 class="text-lg font-bold text-zinc-100 mb-2" data-tr="Kilitli Duvar Panelleri" data-en="Cam-Lock Wall Panels">Kilitli Duvar Panelleri</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-4" data-tr="42 kg/m³ yoğunlukta poliüretan enjeksiyonlu, hijyenik modüler paneller." data-en="Hygienic modular panels injected with 42 kg/m³ high-density polyurethane insulation.">42 kg/m³ yoğunlukta poliüretan enjeksiyonlu, hijyenik modüler paneller.</p>
+                        <a href="projeler.html" class="text-[#3b82f6] text-xs font-bold tracking-wider hover:underline" data-tr="Detayları Gör →" data-en="View Details →">Detayları Gör →</a>
                     </div>
                 </div>
 
-                <!-- Parça 3 -->
-                <div class="bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden group hover:border-[#3b82f6] transition-all duration-300">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Kompresör">
-                        <span class="absolute top-4 left-4 bg-[#3b82f6] text-white text-xs font-bold px-3 py-1 rounded-full">Güç Ünitesi</span>
+                <div class="bg-[#121212] border border-zinc-900 rounded-2xl overflow-hidden group hover:border-[#3b82f6] transition-all duration-300">
+                    <div class="h-52 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-102 transition duration-500" alt="Kompresör">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Merkezi Kondanser Grupları</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Dış ortam ses yalıtımlı, çoklu kompresör kontrolüne izin veren akıllı invertör altyapılı ana motorlar.</p>
-                        <a href="projeler.html" class="text-[#3b82f6] text-xs font-bold uppercase tracking-wider hover:underline inline-flex items-center gap-1">Detayları Gör →</a>
+                        <h3 class="text-lg font-bold text-zinc-100 mb-2" data-tr="Merkezi Kondanser Grupları" data-en="Central Condensing Units">Merkezi Kondanser Grupları</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-4" data-tr="Dış ortam ses yalıtımlı, çoklu kompresör kontrolüne sahip ana güç üniteleri." data-en="Sound-insulated heavy duty condensing power packs built with multi-compressor controls.">Dış ortam ses yalıtımlı, çoklu kompresör kontrolüne sahip ana güç üniteleri.</p>
+                        <a href="projeler.html" class="text-[#3b82f6] text-xs font-bold tracking-wider hover:underline" data-tr="Detayları Gör →" data-en="View Details →">Detayları Gör →</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-12 border-t border-gray-800 bg-[#0a0a0a]">
+    <footer class="py-12 border-t border-zinc-900 bg-[#060606]">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
-                <img src="nexfrigo logo.png" alt="NexFrigo" class="h-8 opacity-40">
-                <span class="font-extrabold text-gray-600 tracking-wider">NEXFRIGO</span>
+                <img src="nexfrigo logo.png" alt="NexFrigo" class="h-7 opacity-40">
+                <span class="font-extrabold text-sm text-zinc-600 tracking-wider">NEXFRIGO</span>
             </div>
-            <p class="text-gray-600 text-sm">&copy; 2026 NexFrigo. Tüm Hakları Saklıdır.</p>
+            <p class="text-zinc-600 text-xs">&copy; 2026 NexFrigo. <span data-tr="Tüm Hakları Saklıdır." data-en="All Rights Reserved.">Tüm Hakları Saklıdır.</span></p>
         </div>
     </footer>
 
-    <!-- SLIDER JAVASCRIPT KODU -->
     <script>
+        // Mobil Menü Tetikleyici
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Slider Yönetimi
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-
         function showSlide(index) {
             slides[currentSlide].classList.remove('active');
             currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
         }
+        function moveSlide(step) { showSlide(currentSlide + step); }
+        setInterval(() => { moveSlide(1); }, 5000);
 
-        function moveSlide(step) {
-            showSlide(currentSlide + step);
+        // ÇOKLU DİL (TR/EN) ALTYAPISI
+        let currentLang = localStorage.getItem('lang') || 'tr';
+        
+        function updateDOM() {
+            document.querySelectorAll('[data-tr]').forEach(element => {
+                element.textContent = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-tr');
+            });
+            // Buton metinlerini güncelle
+            document.getElementById('langBtn').textContent = currentLang === 'tr' ? 'EN' : 'TR';
+            document.getElementById('langBtnMob').textContent = currentLang === 'tr' ? 'EN' : 'TR';
         }
 
-        // Otomatik kayma (Her 5 saniyede bir değiştirir)
-        setInterval(() => { moveSlide(1); }, 5000);
+        function toggleLanguage() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            localStorage.setItem('lang', currentLang);
+            updateDOM();
+        }
+
+        // Sayfa ilk yüklendiğinde hafızadaki dili oku ve uygula
+        window.addEventListener('DOMContentLoaded', updateDOM);
     </script>
 </body>
 </html>
