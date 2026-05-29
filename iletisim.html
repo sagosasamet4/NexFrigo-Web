@@ -10,39 +10,53 @@
 </head>
 <body>
 
-    <!-- MENÜ -->
+    <!-- ÜST MENÜ -->
     <nav class="border-b border-gray-800 bg-[#1a1a1a] sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <img src="nexfrigo logo.png" alt="NexFrigo Logo" class="h-12 w-auto object-contain">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="nexfrigo logo.png" alt="NexFrigo Amblem" class="h-10 w-auto object-contain">
+                    <span class="font-extrabold text-2xl tracking-wider text-white">NEX<span class="text-[#3b82f6]">FRIGO</span></span>
+                </a>
                 <div class="flex space-x-6">
-                    <a href="index.html" class="text-gray-400 hover:text-white transition">Ana Sayfa</a>
-                    <a href="surec.html" class="text-gray-400 hover:text-white transition">Süreç</a>
-                    <a href="iletisim.html" class="text-white font-semibold">İletişim</a>
+                    <a href="index.html" class="text-gray-400 hover:text-white transition font-semibold">Ana Sayfa</a>
+                    <a href="surec.html" class="text-gray-400 hover:text-white transition font-semibold">Süreç</a>
+                    <a href="iletisim.html" class="text-[#3b82f6] font-bold">İletişim</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- İLETİŞİM ALANI -->
-    <section class="py-24 max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-4xl font-extrabold mb-4">Bizimle <span class="text-[#3b82f6]">İletişime Geçin</span></h2>
-        <p class="text-gray-400 mb-12">Projeniz için ücretsiz keşif, fiyat teklifi ve teknik destek alabilirsiniz.</p>
+    <section class="py-24 max-w-5xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-extrabold mb-4">Bizimle <span class="text-[#3b82f6]">İletişime Geçin</span></h2>
+            <p class="text-gray-400">Projeniz için teknik destek, fiyat teklifi ve mühendislik çözümleri sunmaya hazırız.</p>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-[#262626] p-8 rounded-2xl border border-gray-800">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div class="bg-[#262626] p-8 rounded-2xl border border-gray-800 text-center flex flex-col justify-center">
                 <span class="text-3xl block mb-2">📞</span>
-                <h3 class="font-bold text-xl mb-2">Telefon & WhatsApp</h3>
-                <a href="https://wa.me/905454602142" target="_blank" class="text-[#0df05c] font-bold text-lg hover:underline">+90 545 460 21 42</a>
+                <h3 class="font-bold text-lg mb-2">Telefon & WhatsApp</h3>
+                <a href="https://wa.me/905XXXXXXXXX" target="_blank" class="text-[#0df05c] font-bold hover:underline">+90 5XX XXX XX XX</a>
             </div>
-            <div class="bg-[#262626] p-8 rounded-2xl border border-gray-800">
+            
+            <!-- Görsel Blok -->
+            <div class="rounded-2xl overflow-hidden border border-gray-800 h-48 md:h-auto">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Kurumsal Ofis Altyapısı" class="w-full h-full object-cover opacity-60">
+            </div>
+
+            <div class="bg-[#262626] p-8 rounded-2xl border border-gray-800 text-center flex flex-col justify-center">
                 <span class="text-3xl block mb-2">✉️</span>
-                <h3 class="font-bold text-xl mb-2">E-Posta Hattı</h3>
-                <a href="mailto:info@nexfrigo.com" class="text-[#3b82f6] font-bold text-lg hover:underline">info@nexfrigo.com</a>
+                <h3 class="font-bold text-lg mb-2">E-Posta Hattı</h3>
+                <a href="mailto:info@nexfrigo.com" class="text-[#3b82f6] font-bold hover:underline">info@nexfrigo.com</a>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-gray-800 bg-[#0a0a0a] text-center text-gray-600 text-sm">&copy; 2026 NexFrigo.</footer>
+    <footer class="py-12 border-t border-gray-800 bg-[#0a0a0a] flex justify-center items-center gap-3">
+        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-6 opacity-30">
+        <span class="text-gray-600 text-sm">&copy; 2026 NexFrigo.</span>
+    </footer>
 </body>
 </html>
