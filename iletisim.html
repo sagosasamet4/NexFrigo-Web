@@ -5,55 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim | NexFrigo</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style> body { font-family: 'Inter', sans-serif; background-color: #121212; color: #f3f4f6; } </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f5f5f7; } </style>
 </head>
 <body>
 
-    <nav class="border-b border-gray-800 bg-[#121212]/90 sticky top-0 z-50 backdrop-blur-md">
+    <nav class="border-b border-zinc-800 bg-[#0d0d0d]/95 sticky top-0 z-50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 gap-4">
-                <a href="index.html" class="flex items-center gap-2 md:gap-3 flex-shrink-0">
-                    <img src="nexfrigo logo.png" alt="NexFrigo Amblem" class="h-8 w-auto md:h-10 object-contain">
-                    <span class="font-extrabold text-xl md:text-2xl tracking-wider text-white whitespace-nowrap">NEX<span class="text-[#3b82f6]">FRIGO</span></span>
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+                    <img src="nexfrigo logo.png" alt="NexFrigo" class="h-9 w-auto">
+                    <span class="font-extrabold text-xl tracking-wider text-zinc-100">NEX<span class="text-[#3b82f6]">FRIGO</span></span>
                 </a>
-                <div class="flex items-center space-x-3 sm:space-x-6 text-xs sm:text-sm md:text-base flex-shrink-0">
-                    <a href="index.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">Ana Sayfa</a>
-                    <a href="surec.html" class="text-gray-400 hover:text-white transition font-semibold pb-1">Süreç</a>
-                    <a href="iletisim.html" class="text-[#3b82f6] font-bold border-b-2 border-[#3b82f6] pb-1">İletişim</a>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <div class="flex space-x-6 text-sm font-medium">
+                        <a href="index.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+                        <a href="hakkimizda.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+                        <a href="surec.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Süreç" data-en="Process">Süreç</a>
+                        <a href="projeler.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Projeler" data-en="Projects">Projeler</a>
+                        <a href="iletisim.html" class="text-[#3b82f6] font-semibold border-b-2 border-[#3b82f6] pb-1" data-tr="İletişim" data-en="Contact">İletişim</a>
+                    </div>
+                    <button onclick="toggleLanguage()" id="langBtn" class="border border-zinc-700 hover:border-[#3b82f6] text-xs font-bold px-3 py-1.5 rounded-md text-zinc-300 transition">EN</button>
+                </div>
+
+                <div class="flex lg:hidden items-center gap-4">
+                    <button onclick="toggleLanguage()" id="langBtnMob" class="border border-zinc-700 text-xs font-bold px-2.5 py-1 rounded-md text-zinc-300">EN</button>
+                    <button onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
+        </div>
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-zinc-800 bg-[#0d0d0d] px-4 pt-4 pb-6 space-y-3">
+            <a href="index.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+            <a href="hakkimizda.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+            <a href="surec.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Süreç" data-en="Process">Süreç</a>
+            <a href="projeler.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Projeler" data-en="Projects">Projeler</a>
+            <a href="iletisim.html" class="block text-[#3b82f6] font-bold text-base py-2" data-tr="İletişim" data-en="Contact">İletişim</a>
         </div>
     </nav>
 
     <section class="py-24 max-w-5xl mx-auto px-4">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-extrabold mb-4">Bizimle <span class="text-[#3b82f6]">İletişime Geçin</span></h2>
-            <p class="text-gray-400">Projeniz için teknik destek, fiyat teklifi ve mühendislik çözümleri sunmaya hazırız.</p>
+            <h2 class="text-4xl font-extrabold mb-4 text-zinc-100" data-tr="Bizimle İletişime Geçin" data-en="Get in Touch">Bizimle İletişime Geçin</h2>
+            <p class="text-zinc-400 text-sm" data-tr="Projeniz için teknik destek, fiyat teklifi ve mühendislik çözümleri sunmaya hazırız." data-en="We are ready to provide technical support, price quotations, and engineering solutions for your project.">Projeniz için teknik destek, fiyat teklifi ve mühendislik çözümleri sunmaya hazırız.</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            <div class="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 text-center flex flex-col justify-center">
+            <div class="bg-[#121212] p-8 rounded-2xl border border-zinc-900 text-center flex flex-col justify-center hover:border-[#3b82f6] transition duration-300">
                 <span class="text-3xl block mb-2">📞</span>
-                <h3 class="font-bold text-lg mb-2 text-white">Telefon & WhatsApp</h3>
-                <a href="https://wa.me/905454602142" target="_blank" class="text-[#3b82f6] font-bold hover:underline">+90 545 460 21 42</a>
+                <h3 class="font-bold text-base text-zinc-200 mb-2" data-tr="Telefon & WhatsApp" data-en="Phone & WhatsApp">Telefon & WhatsApp</h3>
+                <a href="https://wa.me/905XXXXXXXXX" target="_blank" class="text-[#3b82f6] font-bold text-md hover:underline">+90 5XX XXX XX XX</a>
             </div>
             
-            <div class="rounded-2xl overflow-hidden border border-gray-800 h-48 md:h-auto">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Kurumsal Ofis Altyapısı" class="w-full h-full object-cover opacity-40 filter grayscale">
+            <div class="rounded-2xl overflow-hidden border border-zinc-900 h-48 md:h-auto">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="NexFrigo HQ" class="w-full h-full object-cover opacity-30 filter grayscale">
             </div>
 
-            <div class="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 text-center flex flex-col justify-center">
+            <div class="bg-[#121212] p-8 rounded-2xl border border-zinc-900 text-center flex flex-col justify-center hover:border-[#3b82f6] transition duration-300">
                 <span class="text-3xl block mb-2">✉️</span>
-                <h3 class="font-bold text-lg mb-2 text-white">E-Posta Hattı</h3>
-                <a href="mailto:info@nexfrigo.com" class="text-[#3b82f6] font-bold hover:underline">info@nexfrigo.com</a>
+                <h3 class="font-bold text-base text-zinc-200 mb-2" data-tr="E-Posta Hattı" data-en="Email Address">E-Posta Hattı</h3>
+                <a href="mailto:info@nexfrigo.com" class="text-[#3b82f6] font-bold text-md hover:underline">info@nexfrigo.com</a>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-gray-800 bg-[#0a0a0a] flex justify-center items-center gap-3">
-        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-6 opacity-30">
-        <span class="text-gray-600 text-sm">&copy; 2026 NexFrigo.</span>
+    <footer class="py-12 border-t border-zinc-900 bg-[#060606] flex justify-center items-center gap-3">
+        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-6 opacity-20">
+        <span class="text-zinc-600 text-xs">&copy; 2026 NexFrigo.</span>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        let currentLang = localStorage.getItem('lang') || 'tr';
+        function updateDOM() {
+            document.querySelectorAll('[data-tr]').forEach(element => {
+                element.textContent = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-tr');
+            });
+            document.getElementById('langBtn').textContent = currentLang === 'tr' ? 'EN' : 'TR';
+            document.getElementById('langBtnMob').textContent = currentLang === 'tr' ? 'EN' : 'TR';
+        }
+        function toggleLanguage() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            localStorage.setItem('lang', currentLang);
+            updateDOM();
+        }
+        window.addEventListener('DOMContentLoaded', updateDOM);
+    </script>
 </body>
 </html>
