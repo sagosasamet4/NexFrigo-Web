@@ -189,10 +189,12 @@
         // Sayfa ilk yüklendiğinde hafızadaki dili oku ve uygula
         window.addEventListener('DOMContentLoaded', updateDOM);
     </script>
-<footer class="bg-[#0b111e] text-slate-300 border-t border-slate-800 pt-16 pb-8 font-sans w-full">
+<!-- PREMIUM FOOTER BAŞLANGICI (KURUMSAL KİMLİKLEŞTİRİLMİŞ) -->
+<footer class="bg-[#0d0d0d] text-slate-300 border-t border-zinc-850 pt-16 pb-8 font-sans w-full">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-slate-800">
+    <!-- ÜST BÖLÜM: Büyütülmüş Devasa İkonlar -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-zinc-800">
       <div class="flex items-center space-x-4">
         <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
           <i data-lucide="cpu" class="w-10 h-10"></i>
@@ -224,19 +226,27 @@
       </div>
     </div>
 
+    <!-- ORTA BÖLÜM: Ortak Dil Logo ve Bilgiler -->
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 py-12">
       
+      <!-- 1. Sütun: Yukarıdaki Logonun Aynısı (Görsel ve Yazı Dengesi) -->
       <div class="lg:col-span-1 space-y-6">
-        <div class="text-3xl font-extrabold tracking-wider text-white">
-          <span class="text-blue-500">NEX</span>FRIGO
+        <div class="flex items-center space-x-3">
+          <!-- Sol taraftaki klasöründe yer alan nexfrigo logo.png görselini buraya çektik -->
+          <img src="nexfrigo logo.png" alt="NexFrigo Logo" class="h-8 w-auto object-contain">
+          <!-- Kalınlık üst menüdeki gibi soft hale getirildi -->
+          <span class="text-2xl font-semibold tracking-wider text-white">
+            <span class="text-blue-500">NEX</span>FRIGO
+          </span>
         </div>
         <p class="text-sm text-slate-400 leading-relaxed">
           Endüstriyel iklimlendirme ve soğuk hava depoları alanında yüksek performanslı, enerji tasarruflu ve akıllı lojistik çözümler üreten teknoloji odaklı mühendislik firması.
         </p>
       </div>
 
+      <!-- 2. Sütun: Hızlı Menü -->
       <div>
-        <h3 class="text-white text-lg font-bold mb-6 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
+        <h3 class="text-white text-base font-semibold mb-6 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
           Çözümlerimiz
         </h3>
         <ul class="space-y-3 text-sm">
@@ -247,8 +257,9 @@
         </ul>
       </div>
 
+      <!-- 3. Sütun: Kurumsal İletişim Detayları -->
       <div class="lg:col-span-2 space-y-6">
-        <h3 class="text-white text-lg font-bold mb-2 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
+        <h3 class="text-white text-base font-semibold mb-2 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
           Merkez & İletişim Bölümü
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -263,11 +274,12 @@
             </div>
           </div>
 
-          <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800 flex flex-col justify-center">
+          <!-- Hızlı Destek Hattı -->
+          <div class="bg-zinc-900/50 p-4 rounded-xl border border-zinc-800 flex flex-col justify-center">
             <span class="text-xs text-slate-400 uppercase tracking-wider">Hızlı Proje & Teklif Hattı</span>
             <div class="flex items-center space-x-2 mt-1 text-white hover:text-blue-400 transition-colors">
               <i data-lucide="phone" class="w-5 h-5 text-blue-500"></i>
-              <span class="text-lg font-mono font-bold">+90 (538) 362 77 63</span>
+              <span class="text-lg font-mono font-bold">+90 (551) xxx xx xx</span>
             </div>
           </div>
         </div>
@@ -275,15 +287,19 @@
 
     </div>
 
-    <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+    <!-- ALT BÖLÜM: Yasal Bilgi -->
+    <div class="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
       <p>© 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.</p>
     </div>
 
   </div>
 </footer>
 
+<!-- İkonları Ekrana Basan Sihirli Betik -->
 <script>
   lucide.createIcons();
+</script>
+<!-- PREMIUM FOOTER BİTİŞİ -->
 </script>
 <a href="https://wa.me/90551xxxxxxx?text=Merhaba,%20endüstriyel%20soğutma%20sistemleri%20hakkında%20bilgi%20ve%20proje%20teklifi%20almak%20istiyorum." 
    target="_blank" 
