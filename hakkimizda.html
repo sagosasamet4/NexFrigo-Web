@@ -72,30 +72,10 @@
         </div>
     </section>
 
-    <footer class="py-12 border-t border-zinc-900 bg-[#060606] flex justify-center items-center gap-3">
-        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-6 opacity-20">
-        <span class="text-zinc-600 text-xs">&copy; 2026 NexFrigo.</span>
-    </footer>
-
-    <script>
-        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
-        let currentLang = localStorage.getItem('lang') || 'tr';
-        function updateDOM() {
-            document.querySelectorAll('[data-tr]').forEach(element => {
-                element.textContent = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-tr');
-            });
-            document.getElementById('langBtn').textContent = currentLang === 'tr' ? 'EN' : 'TR';
-            document.getElementById('langBtnMob').textContent = currentLang === 'tr' ? 'EN' : 'TR';
-        }
-        function toggleLanguage() { currentLang = currentLang === 'tr' ? 'en' : 'tr'; localStorage.setItem('lang', currentLang); updateDOM(); }
-        window.addEventListener('DOMContentLoaded', updateDOM);
-    </script>
-    <!-- PREMIUM FOOTER BAŞLANGICI (KURUMSAL KİMLİKLEŞTİRİLMİŞ) -->
-<footer class="bg-[#0d0d0d] text-slate-300 border-t border-zinc-850 pt-16 pb-8 font-sans w-full">
+ <footer class="bg-[#0a0a0a] text-slate-300 pt-16 font-sans w-full">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- ÜST BÖLÜM: Büyütülmüş Devasa İkonlar -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-zinc-800">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-zinc-800/40">
       <div class="flex items-center space-x-4">
         <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
           <i data-lucide="cpu" class="w-10 h-10"></i>
@@ -127,15 +107,11 @@
       </div>
     </div>
 
-    <!-- ORTA BÖLÜM: Ortak Dil Logo ve Bilgiler -->
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 py-12">
       
-      <!-- 1. Sütun: Yukarıdaki Logonun Aynısı (Görsel ve Yazı Dengesi) -->
       <div class="lg:col-span-1 space-y-6">
         <div class="flex items-center space-x-3">
-          <!-- Sol taraftaki klasöründe yer alan nexfrigo logo.png görselini buraya çektik -->
           <img src="nexfrigo logo.png" alt="NexFrigo Logo" class="h-8 w-auto object-contain">
-          <!-- Kalınlık üst menüdeki gibi soft hale getirildi -->
           <span class="text-2xl font-semibold tracking-wider text-white">
             <span class="text-blue-500">NEX</span>FRIGO
           </span>
@@ -145,7 +121,6 @@
         </p>
       </div>
 
-      <!-- 2. Sütun: Hızlı Menü -->
       <div>
         <h3 class="text-white text-base font-semibold mb-6 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
           Çözümlerimiz
@@ -158,7 +133,6 @@
         </ul>
       </div>
 
-      <!-- 3. Sütun: Kurumsal İletişim Detayları -->
       <div class="lg:col-span-2 space-y-6">
         <h3 class="text-white text-base font-semibold mb-2 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
           Merkez & İletişim Bölümü
@@ -175,8 +149,7 @@
             </div>
           </div>
 
-          <!-- Hızlı Destek Hattı -->
-          <div class="bg-zinc-900/50 p-4 rounded-xl border border-zinc-800 flex flex-col justify-center">
+          <div class="bg-zinc-900/40 p-4 rounded-xl border border-zinc-800/50 flex flex-col justify-center">
             <span class="text-xs text-slate-400 uppercase tracking-wider">Hızlı Proje & Teklif Hattı</span>
             <div class="flex items-center space-x-2 mt-1 text-white hover:text-blue-400 transition-colors">
               <i data-lucide="phone" class="w-5 h-5 text-blue-500"></i>
@@ -185,21 +158,44 @@
           </div>
         </div>
       </div>
-
     </div>
+  </div>
 
-    <!-- ALT BÖLÜM: Yasal Bilgi -->
-    <div class="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
-      <p>© 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.</p>
+  <div class="bg-[#050505] py-8 border-t border-zinc-900/60 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs gap-4">
+      <div class="flex items-center space-x-2 opacity-40 hover:opacity-80 transition-opacity">
+        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-4 w-auto object-contain">
+        <span class="font-medium tracking-widest text-zinc-400">NEXFRIGO</span>
+      </div>
+      <div class="font-mono text-zinc-600">
+        <p>© 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.</p>
+      </div>
     </div>
-
   </div>
 </footer>
 
-<!-- İkonları Ekrana Basan Sihirli Betik -->
+<a href="https://wa.me/90551xxxxxxx?text=Merhaba,%20endüstriyel%20soğutma%20sistemleri%20hakkında%20bilgi%20ve%20proje%20teklifi%20almak%20istiyorum." 
+   target="_blank" 
+   class="fixed bottom-6 right-6 z-50 flex items-center bg-emerald-600 text-white h-14 px-4 rounded-full shadow-[0_0_20px_rgba(5,150,105,0.3)] hover:bg-emerald-500 hover:shadow-[0_0_30px_rgba(5,150,105,0.5)] transition-all duration-300 group overflow-hidden">
+  
+  <div class="flex items-center justify-center w-6 h-6 shrink-0">
+    <i data-lucide="phone" class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300"></i>
+  </div>
+  
+  <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 ease-in-out text-sm font-semibold whitespace-nowrap tracking-wide">
+    Hızlı Proje Hattı
+  </span>
+</a>
+
+<script src="https://unpkg.com/lucide@latest"></script>
 <script>
   lucide.createIcons();
+  
+  // Mobil Menü Tetikleyici (Eğer ana sayfada hata verirse diye korundu)
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if(menu) menu.classList.toggle('hidden');
+  }
 </script>
-<!-- PREMIUM FOOTER BİTİŞİ -->
 </body>
 </html>
