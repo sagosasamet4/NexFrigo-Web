@@ -180,113 +180,355 @@
         window.addEventListener('DOMContentLoaded', updateDOM);
     </script>
 <!-- PREMIUM FOOTER BAŞLANGICI (KURUMSAL KİMLİKLEŞTİRİLMİŞ) -->
-<!-- ALTERNATİF B: ELİT SINIR ÇİZGİLİ FOOTER -->
-<footer class="bg-[#0d0d0d] text-slate-300 pt-8 font-sans w-full border-t border-zinc-800/60">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- ÜST BÖLÜM: Üçlü Güven ve Kalite Blokları -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-zinc-800/40">
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="cpu" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">İleri Mühendislik</h4>
-          <p class="text-sm text-slate-400">Üst düzey otomasyonlu endüstriyel sistemler.</p>
-        </div>
-      </div>
+<!-- =========================================================================
+     NEXFRIGO KURUMSAL FOOTER BİLEŞENİ
+     Renk Değişiklikleri İçin En Alttaki <style> İçerisindeki :root Alanını Kullanın
+     ========================================================================= -->
 
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="shield-check" class="w-10 h-10"></i>
+<footer class="nexfrigo-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      
+      <!-- 1. SÜTUN: LOGO, TANIM VE ANA SAYFA ROZETLERİ -->
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <!-- Kurumsal Logo İkonu (SVG) -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4H12V8H4V4Z" fill="var(--nex-blue)"/>
+            <path d="M8 10H16V14H8V10Z" fill="var(--nex-blue)"/>
+            <path d="M12 16H20V20H12V16Z" fill="var(--nex-blue)"/>
+          </svg>
+          <span class="logo-text">NEX<span class="accent-text">FRIGO</span></span>
         </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">2 Yıl Kesintisiz Garanti</h4>
-          <p class="text-sm text-slate-400">Tüm mekanik ve dijital kurulumlar koruma altında.</p>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="clock" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">7/24 Teknik Servis</h4>
-          <p class="text-sm text-slate-400">Soğuk zincirin kırılmaması için anlık müdahale.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ORTA BÖLÜM: Kurumsal Linkler ve İletişim Havuzu -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 py-12">
-      <div class="lg:col-span-1 space-y-6">
-        <div class="flex items-center space-x-3">
-          <img src="nexfrigo logo.png" alt="NexFrigo Logo" class="h-8 w-auto object-contain">
-          <span class="text-2xl font-semibold tracking-wider text-white">
-            <span class="text-blue-500">NEX</span>FRIGO
-          </span>
-        </div>
-        <p class="text-sm text-slate-400 leading-relaxed">
+        <p class="brand-description">
           Endüstriyel iklimlendirme ve soğuk hava depoları alanında yüksek performanslı, enerji tasarruflu ve akıllı lojistik çözümler üreten teknoloji odaklı mühendislik firması.
         </p>
+
+        <!-- Sadece Ana Sayfada Görünecek Özellik Rozetleri -->
+        <!-- Aktif olması için body etiketine 'home-page' sınıfı eklenmelidir: <body class="home-page"> -->
+        <div class="homepage-features">
+          <div class="feature-badge">
+            <span class="feature-icon">⏳</span>
+            <span class="feature-text">7/24 Teknik Hizmet</span>
+          </div>
+          <div class="feature-badge">
+            <span class="feature-icon">🛡️</span>
+            <span class="feature-text">2 Yıl Sistem Garantisi</span>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <h3 class="text-white text-base font-semibold mb-6 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
-          Çözümlerimiz
-        </h3>
-        <ul class="space-y-3 text-sm">
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Soğuk Hava Deposu Kurulumu</a></li>
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Donuk & Şok Muhafaza</a></li>
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Endüstriyel İklimlendirme</a></li>
-          <li><a href="surec.html" class="hover:text-blue-400 transition-colors">Süreçlerimiz</a></li>
+      <!-- 2. SÜTUN: ÇÖZÜMLERİMİZ -->
+      <div class="footer-col">
+        <h3 class="col-title">ÇÖZÜMLERİMİZ</h3>
+        <ul class="footer-links">
+          <li><a href="#">Soğuk Hava Deposu Kurulumu</a></li>
+          <li><a href="#">Donuk & Şok Muhafaza</a></li>
+          <li><a href="#">Endüstriyel İklimlendirme</a></li>
+          <li><a href="#">Süreçlerimiz</a></li>
         </ul>
       </div>
 
-      <div class="lg:col-span-2 space-y-6">
-        <h3 class="text-white text-base font-semibold mb-2 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
-          Merkez & İletişim Bölümü
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <div class="flex items-start space-x-3 text-sm">
-              <i data-lucide="map-pin" class="w-5 h-5 text-blue-500 shrink-0 mt-0.5"></i>
-              <span>Başakşehir, İkitelli Organize Sanayi Bölgesi, İstanbul, Türkiye</span>
-            </div>
-            <div class="flex items-center space-x-3 text-sm">
-              <i data-lucide="mail" class="w-5 h-5 text-blue-500"></i>
-              <a href="mailto:info@nexfrigo.com" class="hover:text-blue-400">info@nexfrigo.com</a>
-            </div>
-          </div>
-          <div class="bg-zinc-900/40 p-4 rounded-xl border border-zinc-800/50 flex flex-col justify-center">
-            <span class="text-xs text-slate-400 uppercase tracking-wider">Hızlı Proje & Teklif Hattı</span>
-            <div class="flex items-center space-x-2 mt-1 text-white hover:text-blue-400 transition-colors">
-              <i data-lucide="phone" class="w-5 h-5 text-blue-500"></i>
-              <span class="text-lg font-mono font-bold">+90 (551) xxx xx xx</span>
-            </div>
+      <!-- 3. SÜTUN: MERKEZ & İLETİŞİM -->
+      <div class="footer-col">
+        <h3 class="col-title">MERKEZ & İLETİŞİM BÖLÜMÜ</h3>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-icon">📍</span>
+            <span>Başakşehir, İkitelli Organize Sanayi Bölgesi, İstanbul, Türkiye</span>
+          </li>
+          <li>
+            <span class="contact-icon">✉️</span>
+            <a href="mailto:info@nexfrigo.com">info@nexfrigo.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4. SÜTUN: HIZLI TEKLİF KUTUSU -->
+      <div class="footer-col offer-box-col">
+        <div class="offer-card">
+          <span class="offer-title">HIZLI PROJE & TEKLİF HATTI</span>
+          <div class="phone-wrapper">
+            <span class="phone-icon">📞</span>
+            <a href="tel:+90551xxxxxxx" class="phone-number">+90 (551) xxx xx xx</a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
-  <!-- EN ALT TEK SATIRLIK BANT -->
-  <div class="bg-[#050505] py-8 border-t border-zinc-900 w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs gap-4">
-      <div class="flex items-center space-x-2 opacity-40 hover:opacity-70 transition-opacity">
-        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-4 w-auto object-contain">
-        <span class="font-medium tracking-widest text-zinc-400">NEXFRIGO</span>
+  <!-- ALT BARKOD & COPYRIGHT & AKSİYON BUTONU -->
+  <div class="footer-bottom">
+    <div class="footer-container bottom-flex">
+      <div class="bottom-logo">
+        <span>NEXFRIGO</span>
       </div>
-      <div class="font-mono text-zinc-600">
-        <p>© 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.</p>
-      </div>
+      <p class="copyright">
+        &copy; 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.
+      </p>
+      
+      <!-- Sağ Alttaki Yeşil Aksiyon Butonu (Yukarı Çık / WhatsApp için Hazır) -->
+      <a href="#" class="green-action-btn" aria-label="Yukarı Çık">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </a>
     </div>
   </div>
 </footer>
-<script>
-  lucide.createIcons();
-</script>
-<!-- PREMIUM FOOTER BİTİŞİ -->
+
+<!-- =========================================================================
+     FOOTER STİLLERİ VE RENK MERKEZİ (CSS)
+     ========================================================================= -->
+<style>
+/* --- 🛠️ RENK VE DEĞİŞKEN MERKEZİ ---
+   Gelecekte renk değiştirmek istersen sadece aşağıdaki kodları güncellemen yeterlidir: */
+:root {
+  --nex-bg-dark: #070708;    /* Ana arka plan siyahı */
+  --nex-bg-bottom: #040405;  /* En alt barın daha koyu siyahı */
+  --nex-card-bg: #0c0d0f;    /* Hızlı teklif ve rozet kartlarının rengi */
+  --nex-blue: #3b82f6;       /* Kurumsal mavi vurgu rengi */
+  --nex-green: #0fa46a;      /* Sağ alttaki butonun canlı yeşili */
+  --nex-text-main: #9a9fa5;  /* Genel gri yazı rengi */
+  --nex-text-muted: #4a4d54; /* Telif yazısı gibi sönük gri yazılar */
+  --nex-border: #141416;     /* İnce ayraç çizgilerinin rengi */
+}
+
+/* Yapısal Alanlar */
+.nexfrigo-footer {
+  background-color: var(--nex-bg-dark);
+  color: var(--nex-text-main);
+  font-family: 'Inter', sans-serif;
+  padding-top: 60px;
+  border-top: 1px solid var(--nex-border);
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 1.1fr 1fr;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+/* Kurumsal Tanım alanı */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.accent-text {
+  color: var(--nex-blue);
+}
+
+.brand-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #808389;
+}
+
+/* Sütun Başlıkları ve Sol Mavi Çizgi */
+.col-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 12px;
+  letter-spacing: 0.5px;
+}
+
+.col-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 3px;
+  background-color: var(--nex-blue);
+}
+
+/* Linkler ve Listeler */
+.footer-links, .contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--nex-text-main);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.contact-list a {
+  color: var(--nex-text-main);
+  text-decoration: none;
+}
+
+/* Hızlı Teklif Kutusu */
+.offer-card {
+  background-color: var(--nex-card-bg);
+  border: 1px solid var(--nex-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.offer-title {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.phone-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.phone-number {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* --- SADECE ANA SAYFA ROZETLERİ --- */
+.homepage-features {
+  display: none; /* Diğer sayfalarda otomatik gizlenir */
+  gap: 12px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+/* Sadece body'de .home-page sınıfı varsa aktif et */
+body.home-page .homepage-features {
+  display: flex;
+}
+
+.feature-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--nex-card-bg);
+  border: 1px solid var(--nex-border);
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.feature-badge:hover {
+  border-color: var(--nex-blue);
+}
+
+.feature-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Alt Telif Hakkı Barı */
+.footer-bottom {
+  background-color: var(--nex-bg-bottom);
+  border-top: 1px solid var(--nex-border);
+  padding: 20px 0;
+}
+
+.bottom-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom-logo {
+  font-size: 13px;
+  font-weight: 700;
+  color: #24262b;
+  letter-spacing: 1px;
+}
+
+.copyright {
+  font-size: 12px;
+  color: var(--nex-text-muted);
+}
+
+/* Sağ Alttaki Yeşil Daire Butonu */
+.green-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--nex-green);
+  color: #ffffff;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.green-action-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+/* Mobil ve Tablet Uyumluluk (Responsive) */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .bottom-flex {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  .homepage-features {
+    justify-content: center;
+  }
+}
+</style>
 </script>
     <a href="https://wa.me/90551xxxxxxx?text=Merhaba,%20endüstriyel%20soğutma%20sistemleri%20hakkında%20bilgi%20ve%20proje%20teklifi%20almak%20istiyorum." 
    target="_blank" 
