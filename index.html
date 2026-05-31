@@ -180,16 +180,18 @@
         window.addEventListener('DOMContentLoaded', updateDOM);
     </script>
     <!-- =========================================================================
-     ANA SAYFAYA ÖZEL: ÖZELLİK KARTLARI & REFERANS LOGO ÇARKI
+     ANA SAYFAYA ÖZEL: KUTUSUZ GÜVEN ÖZELLİKLERİ & İNTERAKTİF (DRAGGABLE) MARQUEE
      ========================================================================= -->
-<section class="homepage-exclusive-section">
-  <div class="addon-container">
+<section class="homepage-floating-addons">
+  <div class="addon-pure-container">
     
-    <!-- Üst Kısım: 3'lü Profesyonel Güven Kartları -->
-    <div class="trust-cards-grid">
-      <div class="trust-card">
-        <div class="trust-icon-box">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+    <!-- 1. ETAP: Tamamen Kutusuz, Havada Duran 3'lü Güven Grubu -->
+    <div class="pure-trust-row">
+      
+      <!-- İleri Mühendislik -->
+      <div class="pure-trust-item">
+        <div class="pure-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
             <rect x="9" y="9" width="6" height="6"></rect>
             <line x1="9" y1="1" x2="9" y2="3"></line>
@@ -202,205 +204,286 @@
             <line x1="1" y1="15" x2="3" y2="15"></line>
           </svg>
         </div>
-        <div class="trust-content">
-          <h4>İleri Mühendislik</h4>
+        <div class="pure-trust-text">
+          <h3>İleri Mühendislik</h3>
           <p>Üst düzey otomasyonlu endüstriyel sistemler.</p>
         </div>
       </div>
 
-      <div class="trust-card">
-        <div class="trust-icon-box">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+      <!-- 2 Yıl Garanti -->
+      <div class="pure-trust-item">
+        <div class="pure-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
         </div>
-        <div class="trust-content">
-          <h4>2 Yıl Kesintisiz Garanti</h4>
+        <div class="pure-trust-text">
+          <h3>2 Yıl Kesintisiz Garanti</h3>
           <p>Tüm mekanik ve dijital kurulumlar koruma altında.</p>
         </div>
       </div>
 
-      <div class="trust-card">
-        <div class="trust-icon-box">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+      <!-- 7/24 Servis -->
+      <div class="pure-trust-item">
+        <div class="pure-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
             <polyline points="12 6 12 12 16 14"></polyline>
           </svg>
         </div>
-        <div class="trust-content">
-          <h4>7/24 Teknik Servis</h4>
+        <div class="pure-trust-text">
+          <h3>7/24 Teknik Servis</h3>
           <p>Soğuk zincirin kırılmaması için anlık müdahale.</p>
         </div>
       </div>
+
     </div>
 
-    <!-- Alt Kısım: Sonsuz Döngülü Estetik Referans Çarkı (CSS Marquee) -->
-    <div class="reference-marquee-wrapper">
-      <div class="marquee-title">REFERANSLARIMIZ</div>
-      <div class="marquee-track">
-        <!-- Orijinal Logo Grubu -->
-        <div class="marquee-content">
-          <img src="logo-nobel.png" alt="Nobel İlaç">
-          <img src="logo-sanovel.png" alt="Sanovel">
-          <img src="logo-file.png" alt="File Market">
-          <img src="logo-nobel.png" alt="Nobel İlaç">
-          <img src="logo-sanovel.png" alt="Sanovel">
-          <img src="logo-file.png" alt="File Market">
-        </div>
-        <!-- Döngünün Kusursuz Olması İçin Kopyalanan İkiz Grup (Kutuyu Doldurur) -->
-        <div class="marquee-content" aria-hidden="true">
-          <img src="logo-nobel.png" alt="Nobel İlaç">
-          <img src="logo-sanovel.png" alt="Sanovel">
-          <img src="logo-file.png" alt="File Market">
+    <!-- İki grup arasında estetik çok ince bir geçiş çizgisi -->
+    <div class="pure-divider"></div>
+
+    <!-- 2. ETAP: Fareyle Çekiştirilebilir, Kenarlardan Eriyerek Geçen Logo Çarkı -->
+    <div class="pure-marquee-section">
+      <div class="pure-marquee-track" id="interactive-marquee">
+        
+        <!-- Ana Logo Kümesi -->
+        <div class="pure-marquee-content">
           <img src="logo-nobel.png" alt="Nobel İlaç">
           <img src="logo-sanovel.png" alt="Sanovel">
           <img src="logo-file.png" alt="File Market">
         </div>
+        
+        <!-- Kusursuz Döngü İçin İkiz Küme -->
+        <div class="pure-marquee-content">
+          <img src="logo-nobel.png" alt="Nobel İlaç">
+          <img src="logo-sanovel.png" alt="Sanovel">
+          <img src="logo-file.png" alt="File Market">
+        </div>
+
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- =========================================================================
+     STİL KATMANI (CSS)
+     ========================================================================= -->
 <style>
-/* --- ANA SAYFAYA ÖZEL EKSTRE BİLEŞEN STİLLERİ --- */
-.homepage-exclusive-section {
+.homepage-floating-addons {
   background-color: #070708;
-  padding: 60px 0 20px 0;
+  padding: 80px 0 40px 0;
+  font-family: 'Inter', sans-serif;
 }
-.addon-container {
+
+.addon-pure-container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* Güven Kartları Tasarımı */
-.trust-cards-grid {
+/* Kutusuz Güven Grubu */
+.pure-trust-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 50px;
+  gap: 50px;
+  padding-bottom: 60px;
 }
-.trust-card {
-  background-color: #0c0d0f;
-  border: 1px solid #141416;
-  border-radius: 12px;
-  padding: 24px;
+
+.pure-trust-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
 }
-.trust-card:hover {
-  transform: translateY(-4px);
-  border-color: #3b82f6;
-}
-.trust-icon-box {
-  background-color: #0f172a;
-  border: 1px solid #1e293b;
-  width: 54px;
-  height: 54px;
-  border-radius: 10px;
+
+.pure-icon-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(59, 130, 246, 0.06);
   flex-shrink: 0;
 }
-.trust-content h4 {
+
+.pure-trust-text h3 {
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
   margin: 0 0 6px 0;
+  letter-spacing: 0.3px;
 }
-.trust-content p {
+
+.pure-trust-text p {
   color: #808389;
   font-size: 13px;
+  line-height: 1.5;
   margin: 0;
-  line-height: 1.4;
 }
 
-/* Sonsuz Çark (Marquee) Mekanizması */
-.reference-marquee-wrapper {
-  background-color: #0c0d0f;
-  border: 1px solid #141416;
-  border-radius: 16px;
-  padding: 30px 0;
+.pure-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05) 50%, transparent);
+  margin-bottom: 50px;
+}
+
+/* Yenilenmiş İnteraktif Çark Alanı */
+.pure-marquee-section {
+  width: 100%;
   overflow: hidden;
   position: relative;
+  padding: 10px 0;
+  /* Maskeleme sistemi: Sağ ve sol kenarda yumuşak geçişle erime efekti */
+  mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
 }
-.marquee-title {
-  font-size: 11px;
-  font-weight: 800;
-  color: #4a4d54;
-  text-align: center;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-}
-.marquee-track {
+
+.pure-marquee-track {
   display: flex;
-  overflow: hidden;
-  width: 100%;
-  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  gap: 120px;
+  overflow-x: hidden;
+  white-space: nowrap;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
 }
-.marquee-content {
+
+.pure-marquee-track:active {
+  cursor: grabbing;
+}
+
+.pure-marquee-content {
   display: flex;
-  gap: 80px;
-  flex-shrink: 0;
+  gap: 120px;
   align-items: center;
-  justify-content: space-around;
-  min-width: 100%;
-  animation: nexMarquee 25s linear infinite;
+  flex-shrink: 0;
 }
-.marquee-content img {
-  height: 42px;
+
+.pure-marquee-content img {
+  height: 40px;
   object-fit: contain;
   filter: grayscale(1) brightness(0.8);
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* JS sürüklemesini tarayıcı görsellerinin bozmaması için kritik */
 }
-.marquee-content img:hover {
+
+.pure-marquee-content img:hover {
   filter: grayscale(0) brightness(1);
+  transform: scale(1.04);
 }
 
-/* Duraksız Akış Animasyonu */
-@keyframes nexMarquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Mobil Uyum */
 @media (max-width: 991px) {
-  .trust-cards-grid { grid-template-columns: 1fr; gap: 16px; }
-  .marquee-content { gap: 40px; }
+  .pure-trust-row { grid-template-columns: 1fr; gap: 32px; }
+  .pure-marquee-track, .pure-marquee-content { gap: 60px; }
 }
 </style>
-<!-- PREMIUM FOOTER BAŞLANGICI (KURUMSAL KİMLİKLEŞTİRİLMİŞ) -->
+
 <!-- =========================================================================
-     GENEL KURUMSAL FOOTER BİLEŞENİ (TÜM SAYFALAR İÇİN ORTAK)
+     AKILLI İNTERAKTİF MOTOR (JAVASCRIPT)
      ========================================================================= -->
-<footer class="nexfrigo-global-footer">
-  <div class="footer-core-container">
-    <div class="footer-main-grid">
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.getElementById("interactive-marquee");
+  if (!track) return;
+
+  const firstGroup = track.querySelector(".pure-marquee-content");
+  
+  // Değişkenler
+  let isDragging = false;
+  let startX = 0;
+  let scrollLeftStart = 0;
+  let speed = 1; // Otomatik akış hızı (Artırırsan daha hızlı döner)
+  let animationFrameId = null;
+
+  // Sonsuz döngü için eşik değeri hesaplama
+  const getLoopThreshold = () => firstGroup.offsetWidth + 120; // 120px gap değeridir
+
+  // 1. Otomatik Akış Fonksiyonu
+  const autoScroll = () => {
+    if (!isDragging) {
+      track.scrollLeft += speed;
       
-      <!-- 1. Sütun: Şirket Tanımı -->
-      <div class="footer-core-col">
-        <div class="footer-brand-identity">
+      // Sona ulaşıldığında başa kusursuz atlama yapısı
+      if (track.scrollLeft >= getLoopThreshold()) {
+        track.scrollLeft = 0;
+      }
+    }
+    animationFrameId = requestAnimationFrame(autoScroll);
+  };
+
+  // 2. Mouse / Sürükleme Olayları
+  const startDrag = (e) => {
+    isDragging = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeftStart = track.scrollLeft;
+  };
+
+  const stopDrag = () => {
+    isDragging = false;
+  };
+
+  const moveDrag = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.5; // 1.5 sürükleme hassasiyetidir
+    track.scrollLeft = scrollLeftStart - walk;
+
+    // Sürüklerken de sonsuz döngünün kırılmaması için sınır kontrolleri
+    const threshold = getLoopThreshold();
+    if (track.scrollLeft >= threshold) {
+      track.scrollLeft -= threshold;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeftStart = track.scrollLeft;
+    } else if (track.scrollLeft <= 0) {
+      track.scrollLeft += threshold;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeftStart = track.scrollLeft;
+    }
+  };
+
+  // Masaüstü Mouse Dinleyicileri
+  track.addEventListener("mousedown", startDrag);
+  track.addEventListener("mouseleave", stopDrag);
+  track.addEventListener("mouseup", stopDrag);
+  track.addEventListener("mousemove", moveDrag);
+
+  // Mobil Dokunmatik Ekran Desteği
+  track.addEventListener("touchstart", (e) => startDrag({ pageX: e.touches[0].pageX }));
+  track.addEventListener("touchend", stopDrag);
+  track.addEventListener("touchmove", (e) => {
+    if(isDragging) moveDrag({ pageX: e.touches[0].pageX, preventDefault: () => e.preventDefault() });
+  });
+
+  // Animasyonu başlat
+  autoScroll();
+});
+</script>
+</style>
+<!-- PREMIUM FOOTER BAŞLANGICI (KURUMSAL KİMLİKLEŞTİRİLMİŞ) -->
+<footer class="nexfrigo-pure-footer">
+  <div class="footer-pure-container">
+    <div class="footer-pure-grid">
+      
+      <div class="footer-pure-col">
+        <div class="brand-pure-identity">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 4H12V8H4V4Z" fill="var(--core-blue)"/>
-            <path d="M8 10H16V14H8V10Z" fill="var(--core-blue)"/>
-            <path d="M12 16H20V20H12V16Z" fill="var(--core-blue)"/>
+            <path d="M4 4H12V8H4V4Z" fill="#3b82f6"/>
+            <path d="M8 10H16V14H8V10Z" fill="#3b82f6"/>
+            <path d="M12 16H20V20H12V16Z" fill="#3b82f6"/>
           </svg>
-          <span class="brand-main-text">NEX<span class="brand-blue-text">FRIGO</span></span>
+          <span class="brand-pure-logo-text">NEX<span class="brand-pure-blue">FRIGO</span></span>
         </div>
-        <p class="brand-core-text">
+        <p class="brand-pure-desc">
           Endüstriyel iklimlendirme ve soğuk hava depoları alanında yüksek performanslı, enerji tasarruflu ve akıllı lojistik çözümler üreten teknoloji odaklı mühendislik firması.
         </p>
       </div>
 
-      <!-- 2. Sütun: Çözümler -->
-      <div class="footer-core-col">
-        <h3 class="core-col-title">ÇÖZÜMLERİMİZ</h3>
-        <ul class="core-links-list">
+      <div class="footer-pure-col">
+        <h3 class="pure-title-widget">ÇÖZÜMLERİMİZ</h3>
+        <ul class="pure-links-widget">
           <li><a href="#">Soğuk Hava Deposu Kurulumu</a></li>
           <li><a href="#">Donuk & Şok Muhafaza</a></li>
           <li><a href="#">Endüstriyel İklimlendirme</a></li>
@@ -408,28 +491,26 @@
         </ul>
       </div>
 
-      <!-- 3. Sütun: Merkez Adres -->
-      <div class="footer-core-col">
-        <h3 class="core-col-title">MERKEZ & İLETİŞİM BÖLÜMÜ</h3>
-        <ul class="core-contact-info">
+      <div class="footer-pure-col">
+        <h3 class="pure-title-widget">MERKEZ & İLETİŞİM BÖLÜMÜ</h3>
+        <ul class="pure-contact-widget">
           <li>
-            <span class="info-icon">📍</span>
+            <span class="widget-icon">📍</span>
             <span>Başakşehir, İkitelli Organize Sanayi Bölgesi, İstanbul, Türkiye</span>
           </li>
           <li>
-            <span class="info-icon">✉️</span>
+            <span class="widget-icon">✉️</span>
             <a href="mailto:info@nexfrigo.com">info@nexfrigo.com</a>
           </li>
         </ul>
       </div>
 
-      <!-- 4. Sütun: Hızlı Teklif Hattı -->
-      <div class="footer-core-col">
-        <div class="core-offer-card">
-          <span class="core-offer-label">HIZLI PROJE & TEKLİF HATTI</span>
-          <div class="core-phone-row">
-            <span class="phone-icon-svg">📞</span>
-            <a href="tel:+90551xxxxxxx" class="core-phone-link">+90 (551) xxx xx xx</a>
+      <div class="footer-pure-col">
+        <div class="pure-box-card">
+          <span class="pure-box-label">HIZLI PROJE & TEKLİF HATTI</span>
+          <div class="pure-phone-row">
+            <span class="phone-icon-indicator">📞</span>
+            <a href="tel:+90551xxxxxxx" class="pure-phone-anchor">+90 (551) xxx xx xx</a>
           </div>
         </div>
       </div>
@@ -437,17 +518,16 @@
     </div>
   </div>
 
-  <!-- En Alt Telif & Yukarı Çıkış Alanı -->
-  <div class="footer-core-bottom">
-    <div class="footer-core-container bottom-core-flex">
-      <div class="bottom-passive-text">
+  <div class="footer-pure-bottom-bar">
+    <div class="footer-pure-container bottom-bar-flex">
+      <div class="bottom-bar-logo-passive">
         <span>NEXFRIGO</span>
       </div>
-      <p class="core-copyright-text">
+      <p class="bottom-bar-copyright">
         &copy; 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.
       </p>
-      <a href="#" class="core-green-btn" aria-label="Yukarı Dön">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+      <a href="#" class="pure-green-circle-btn" aria-label="Yukarı Dön">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
       </a>
@@ -456,61 +536,55 @@
 </footer>
 
 <style>
-/* --- GENEL KURUMSAL FOOTER STİLLERİ --- */
-:root {
-  --core-bg-dark: #070708;
-  --core-bg-deep: #040405;
-  --core-card-bg: #0c0d0f;
-  --core-blue: #3b82f6;
-  --core-green: #0fa46a;
-  --core-border: #141416;
-}
-
-.nexfrigo-global-footer {
-  background-color: var(--core-bg-dark);
+/* --- GENEL SABİT FOOTER CSS CORE --- */
+.nexfrigo-pure-footer {
+  background-color: #070708;
   color: #9a9fa5;
   font-family: 'Inter', sans-serif;
-  padding-top: 50px;
-  border-top: 1px solid var(--core-border);
+  padding-top: 60px;
+  border-top: 1px solid #141416;
 }
-.footer-core-container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-.footer-main-grid { display: grid; grid-template-columns: 1.2fr 0.9fr 1.1fr 1fr; gap: 40px; padding-bottom: 40px; }
 
-.footer-brand-identity { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-.brand-main-text { font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; }
-.brand-blue-text { color: var(--core-blue); }
-.brand-core-text { font-size: 14px; line-height: 1.6; color: #808389; }
+.footer-pure-container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.footer-pure-grid { display: grid; grid-template-columns: 1.2fr 0.9fr 1.1fr 1fr; gap: 40px; padding-bottom: 50px; }
 
-.core-col-title { font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 25px; position: relative; padding-left: 12px; }
-.core-col-title::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 3px; background-color: var(--core-blue); }
+.brand-pure-identity { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.brand-pure-logo-text { font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; }
+.brand-pure-blue { color: #3b82f6; }
+.brand-pure-desc { font-size: 14px; line-height: 1.6; color: #808389; }
 
-.core-links-list, .core-contact-info { list-style: none; padding: 0; margin: 0; }
-.core-links-list li { margin-bottom: 12px; }
-.core-links-list a, .core-contact-info a { color: #9a9fa5; text-decoration: none; font-size: 14px; transition: color 0.2s; }
-.core-links-list a:hover, .core-contact-info a:hover { color: #ffffff; }
-.core-contact-info li { display: flex; gap: 12px; font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
+.pure-title-widget { font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 25px; position: relative; padding-left: 12px; }
+.pure-title-widget::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 3px; background-color: #3b82f6; }
 
-.core-offer-card { background-color: var(--core-card-bg); border: 1px solid var(--core-border); border-radius: 12px; padding: 24px; }
-.core-offer-label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 12px; }
-.core-phone-row { display: flex; align-items: center; gap: 10px; }
-.core-phone-link { font-size: 18px; font-weight: 800; color: #ffffff; text-decoration: none; }
+.pure-links-widget, .pure-contact-widget { list-style: none; padding: 0; margin: 0; }
+.pure-links-widget li { margin-bottom: 12px; }
+.pure-links-widget a, .pure-contact-widget a { color: #9a9fa5; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.pure-links-widget a:hover, .pure-contact-widget a:hover { color: #ffffff; }
+.pure-contact-widget li { display: flex; gap: 12px; font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
 
-.footer-core-bottom { background-color: var(--core-bg-deep); border-top: 1px solid var(--core-border); padding: 20px 0; }
-.bottom-core-flex { display: flex; justify-content: space-between; align-items: center; }
-.bottom-passive-text { font-size: 13px; font-weight: 700; color: #24262b; letter-spacing: 1px; }
-.core-copyright-text { font-size: 12px; color: #4a4d54; }
+.pure-box-card { background-color: #0c0d0f; border: 1px solid #141416; border-radius: 12px; padding: 24px; }
+.pure-box-label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 12px; }
+.pure-phone-row { display: flex; align-items: center; gap: 10px; }
+.pure-phone-anchor { font-size: 18px; font-weight: 800; color: #ffffff; text-decoration: none; }
 
-.core-green-btn {
+/* Alt Şerit Alanı */
+.footer-pure-bottom-bar { background-color: #040405; border-top: 1px solid #141416; padding: 20px 0; }
+.bottom-bar-flex { display: flex; justify-content: space-between; align-items: center; }
+.bottom-bar-logo-passive { font-size: 13px; font-weight: 700; color: #24262b; letter-spacing: 1px; }
+.bottom-bar-copyright { font-size: 12px; color: #4a4d54; }
+
+/* Yeşil Daire Buton */
+.pure-green-circle-btn {
   display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;
-  background-color: var(--core-green); color: #ffffff; border-radius: 50%; text-decoration: none;
+  background-color: #0fa46a; color: #ffffff; border-radius: 50%; text-decoration: none;
   transition: transform 0.2s, filter 0.2s;
 }
-.core-green-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+.pure-green-circle-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
-@media (max-width: 1024px) { .footer-main-grid { grid-template-columns: 1fr 1fr; gap: 30px; } }
+@media (max-width: 1024px) { .footer-pure-grid { grid-template-columns: 1fr 1fr; gap: 30px; } }
 @media (max-width: 640px) {
-  .footer-main-grid { grid-template-columns: 1fr; }
-  .bottom-core-flex { flex-direction: column; gap: 15px; text-align: center; }
+  .footer-pure-grid { grid-template-columns: 1fr; }
+  .bottom-bar-flex { flex-direction: column; gap: 15px; text-align: center; }
 }
 </style>
 <script>
