@@ -3,206 +3,504 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkımızda | NexFrigo</title>
+    <title>Hakkımızda | NexFrigo — Modüler Soğuk Zincir</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-    <style> html { overflow-y: scroll; } body { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f5f5f7; } </style>
-<script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        html { overflow-y: scroll; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #f5f5f7; }
+
+        .hero-gradient {
+            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.1) 0%, transparent 60%);
+        }
+
+        /* Değer kartları */
+        .value-card {
+            background: #111;
+            border: 1px solid #1e1e1e;
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .value-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .value-card:hover { border-color: rgba(59,130,246,0.3); transform: translateY(-3px); }
+        .value-card:hover::after { opacity: 1; }
+
+        /* Timeline */
+        .timeline-item { position: relative; padding-left: 36px; padding-bottom: 32px; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 8px; top: 24px; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(59,130,246,0.4), transparent);
+        }
+        .timeline-item:last-child::before { display: none; }
+        .timeline-dot {
+            position: absolute;
+            left: 0; top: 4px;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: #0a0a0a;
+            border: 2px solid #3b82f6;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .timeline-dot-inner {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #3b82f6;
+        }
+
+        /* Rakam sayaçları */
+        .metric-card {
+            background: linear-gradient(135deg, rgba(59,130,246,0.06) 0%, rgba(59,130,246,0.02) 100%);
+            border: 1px solid rgba(59,130,246,0.15);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        /* Scroll top */
+        #scrollTop {
+            position: fixed; bottom: 88px; right: 24px; z-index: 50;
+            width: 44px; height: 44px;
+            background: #1e293b; border: 1px solid #334155; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; opacity: 0; pointer-events: none; transition: all 0.3s;
+        }
+        #scrollTop.visible { opacity: 1; pointer-events: all; }
+        #scrollTop:hover { background: #3b82f6; border-color: #3b82f6; }
+
+        /* Sonsuz kayan şerit */
+        .marquee-wrapper {
+            overflow: hidden;
+            background: #0d0d0d;
+            border-top: 1px solid rgba(59,130,246,0.12);
+            border-bottom: 1px solid rgba(59,130,246,0.12);
+            padding: 18px 0;
+            position: relative;
+        }
+        .marquee-wrapper::before, .marquee-wrapper::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2;
+        }
+        .marquee-wrapper::before { left: 0; background: linear-gradient(to right, #0d0d0d, transparent); }
+        .marquee-wrapper::after { right: 0; background: linear-gradient(to left, #0d0d0d, transparent); }
+        .marquee-track { display: flex; width: max-content; animation: marquee-scroll 30s linear infinite; }
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-set { display: flex; align-items: center; }
+        .marquee-item {
+            display: flex; align-items: center; gap: 10px;
+            padding: 0 44px;
+            border-right: 1px solid rgba(255,255,255,0.05);
+            white-space: nowrap;
+        }
+        .marquee-item:last-child { border-right: none; }
+        .marquee-dot { width: 5px; height: 5px; border-radius: 50%; background: #3b82f6; flex-shrink: 0; }
+        .marquee-name { font-size: 12px; font-weight: 600; color: #94a3b8; letter-spacing: 0.5px; text-transform: uppercase; }
+        .marquee-sector { font-size: 10px; color: #475569; }
+        @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    </style>
 </head>
 <body class="antialiased">
 
-    <!-- ÜST MENÜ -->
-    <nav class="border-b border-zinc-800 bg-[#0d0d0d]/95 sticky top-0 z-50 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-                    <img src="nexfrigo logo.png" alt="NexFrigo" class="h-12 w-auto object-contain">
-                    <span class="font-extrabold text-xl tracking-wider text-[#3b82f6]">NEX<span class="text-zinc-100">FRIGO</span></span>
+<!-- ══════════════════════════════════
+     NAVİGASYON
+══════════════════════════════════ -->
+<nav class="border-b border-zinc-800/60 bg-[#0a0a0a]/95 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+                <img src="nexfrigo logo.png" alt="NexFrigo" class="h-12 w-auto object-contain">
+                <span class="font-extrabold text-xl tracking-wider">
+                    <span class="text-[#3b82f6]">NEX</span><span class="text-zinc-100">FRIGO</span>
+                </span>
+            </a>
+            <div class="hidden lg:flex items-center gap-8">
+                <div class="flex gap-6 text-sm font-medium">
+                    <a href="index.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1">Ana Sayfa</a>
+                    <a href="hakkimizda.html" class="text-[#3b82f6] border-b-2 border-[#3b82f6] pb-1 font-semibold">Hakkımızda</a>
+                    <a href="surec.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1">Süreç</a>
+                    <a href="projeler.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1">Projeler</a>
+                    <a href="iletisim.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1">İletişim</a>
+                </div>
+                <a href="iletisim.html" class="bg-[#3b82f6] hover:bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition">
+                    Teklif Al →
                 </a>
-                  
-                <div class="hidden lg:flex items-center space-x-8">
-                    <div class="flex space-x-6 text-sm font-medium">
-                        <a href="index.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-                        <a href="hakkimizda.html" class="text-[#3b82f6] font-semibold border-b-2 border-[#3b82f6] pb-1" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
-                        <a href="surec.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Süreç" data-en="Process">Süreç</a>
-                        <a href="projeler.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Projeler" data-en="Projects">Projeler</a>
-                        <a href="iletisim.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="İletişim" data-en="Contact">İletişim</a>
-                    </div>
-                    <button onclick="toggleLanguage()" id="langBtn" class="border border-zinc-700 hover:border-[#3b82f6] text-xs font-bold px-3 py-1.5 rounded-md text-zinc-300 transition">EN</button>
-                </div>
-
-                <div class="flex lg:hidden items-center gap-4">
-                    <button onclick="toggleLanguage()" id="langBtnMob" class="border border-zinc-700 text-xs font-bold px-2.5 py-1 rounded-md text-zinc-300">EN</button>
-                    <button onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-white">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
-                </div>
+                <button onclick="toggleLanguage()" id="langBtn" class="border border-zinc-700 hover:border-[#3b82f6] text-xs font-bold px-3 py-1.5 rounded-md text-zinc-300 transition">EN</button>
+            </div>
+            <div class="flex lg:hidden items-center gap-3">
+                <button onclick="toggleLanguage()" class="border border-zinc-700 text-xs font-bold px-2.5 py-1 rounded-md text-zinc-300">EN</button>
+                <button onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-white p-1">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
             </div>
         </div>
-        <div id="mobileMenu" class="hidden lg:hidden border-t border-zinc-800 bg-[#0d0d0d] px-4 pt-4 pb-6 space-y-3">
-            <a href="index.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-            <a href="hakkimizda.html" class="block text-[#3b82f6] font-bold text-base py-2" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
-            <a href="surec.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Süreç" data-en="Process">Süreç</a>
-            <a href="projeler.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Projeler" data-en="Projects">Projeler</a>
-            <a href="iletisim.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="İletişim" data-en="Contact">İletişim</a>
-        </div>
-    </nav>
-
-    <!-- HAKKIMIZDA ICERIK -->
-    <section class="py-24 max-w-5xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <span class="text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20" data-tr="Kurumsal" data-en="Corporate">Kurumsal</span>
-            <h2 class="text-4xl font-extrabold mt-3 mb-6 text-zinc-100" data-tr="Geleceğin Soğutma Teknolojisi" data-en="Future of Cooling Technology">Geleceğin Soğutma Teknolojisi</h2>
-            <p class="text-zinc-400 leading-relaxed max-w-3xl mx-auto text-sm md:text-base" data-tr="NexFrigo, endüstriyel iklimlendirme ve modüler soğuk depolama alanında mühendislik vizyonuyla yüksek performanslı çözümler üretmek amacıyla kurulmuştur. Tasarım, imalat ve montaj süreçlerinin tamamını tek çatı altında birleştiriyoruz." data-en="NexFrigo was established to produce high-performance solutions with an engineering vision in industrial air conditioning and modular cold storage sectors. We combine design, manufacturing, and assembly processes under one roof.">
-                NexFrigo, endüstriyel iklimlendirme ve modüler soğuk depolama alanında mühendislik vizyonuyla yüksek performanslı çözümler üretmek amacıyla kurulmuştur. Tasarım, imalat ve montaj süreçlerinin tamamını tek çatı altında birleştiriyoruz.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div class="bg-[#121212] p-8 rounded-2xl border border-zinc-900 hover:border-zinc-800 transition">
-                <h3 class="text-lg font-bold text-zinc-200 mb-3" data-tr="Mühendislik ve Tasarım" data-en="Engineering and Design">Mühendislik ve Tasarım</h3>
-                <p class="text-zinc-400 text-xs md:text-sm leading-relaxed" data-tr="Termodinamik analizler ve 3D modelleme teknikleriyle projelerimizi sıfır hata payıyla dijital ortamda kurguluyor, endüstriyel standartları optimize ediyoruz." data-en="Through thermodynamic analysis and 3D modeling techniques, we simulate our projects digitally with zero margin of error, optimizing industrial standards.">Termodinamik analizler ve 3D modelleme teknikleriyle projelerimizi sıfır hata payıyla dijital ortamda kurguluyor, endüstriyel standartları optimize ediyoruz.</p>
-            </div>
-            <div class="bg-[#121212] p-8 rounded-2xl border border-zinc-900 hover:border-zinc-800 transition">
-                <h3 class="text-lg font-bold text-zinc-200 mb-3" data-tr="Sürdürülebilir Verimlilik" data-en="Sustainable Efficiency">Sürdürülebilir Verimlilik</h3>
-                <p class="text-zinc-400 text-xs md:text-sm leading-relaxed" data-tr="Kullandığımız tüm izolasyon panellerinde ve kompresör komponentlerinde minimum enerji sarfiyatı ile maksimum soğuk zincir güvenliğini hedefliyoruz." data-en="We target maximum cold chain safety with minimum energy consumption across all insulation panels and compressor components we utilize.">Kullandığımız tüm izolasyon panellerinde ve kompresör komponentlerinde minimum enerji sarfiyatı ile maksimum soğuk zincir güvenliğini hedefliyoruz.</p>
-            </div>
-        </div>
-    </section>
-
-<!-- PREMIUM FOOTER BAŞLANGICI (KURUMSAL KİMLİKLEŞTİRİLMİŞ) -->
-<!-- ALTERNATİF B: ELİT SINIR ÇİZGİLİ FOOTER -->
-<footer class="bg-[#0d0d0d] text-slate-300 pt-8 font-sans w-full border-t border-zinc-800/60">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- ÜST BÖLÜM: Üçlü Güven ve Kalite Blokları -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-zinc-800/40">
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="cpu" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">İleri Mühendislik</h4>
-          <p class="text-sm text-slate-400">Üst düzey otomasyonlu endüstriyel sistemler.</p>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="shield-check" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">2 Yıl Kesintisiz Garanti</h4>
-          <p class="text-sm text-slate-400">Tüm mekanik ve dijital kurulumlar koruma altında.</p>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="clock" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">7/24 Teknik Servis</h4>
-          <p class="text-sm text-slate-400">Soğuk zincirin kırılmaması için anlık müdahale.</p>
-        </div>
-      </div>
     </div>
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-zinc-800 bg-[#0a0a0a] px-4 pt-4 pb-6 space-y-2">
+        <a href="index.html" class="block text-zinc-400 py-2.5 border-b border-zinc-800/50">Ana Sayfa</a>
+        <a href="hakkimizda.html" class="block text-[#3b82f6] font-bold py-2.5 border-b border-zinc-800/50">Hakkımızda</a>
+        <a href="surec.html" class="block text-zinc-400 py-2.5 border-b border-zinc-800/50">Süreç</a>
+        <a href="projeler.html" class="block text-zinc-400 py-2.5 border-b border-zinc-800/50">Projeler</a>
+        <a href="iletisim.html" class="block text-zinc-400 py-2.5">İletişim</a>
+    </div>
+</nav>
 
-    <!-- ORTA BÖLÜM: Kurumsal Linkler ve İletişim Havuzu -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 py-12">
-      <div class="lg:col-span-1 space-y-6">
-        <div class="flex items-center space-x-3">
-          <img src="nexfrigo logo.png" alt="NexFrigo Logo" class="h-8 w-auto object-contain">
-          <span class="text-2xl font-semibold tracking-wider text-white">
-            <span class="text-blue-500">NEX</span>FRIGO
-          </span>
-        </div>
-        <p class="text-sm text-slate-400 leading-relaxed">
-          Endüstriyel iklimlendirme ve soğuk hava depoları alanında yüksek performanslı, enerji tasarruflu ve akıllı lojistik çözümler üreten teknoloji odaklı mühendislik firması.
+<!-- ══════════════════════════════════
+     HERO: HAKKIMIZDA
+══════════════════════════════════ -->
+<section class="hero-gradient pt-20 pb-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-block text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-4 py-1.5 rounded-full border border-blue-500/20 mb-6">Kurumsal</span>
+        <h1 class="text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            Soğuğu <span class="text-[#3b82f6]">Teknolojiye</span> Dönüştürüyoruz
+        </h1>
+        <p class="text-zinc-400 text-lg leading-relaxed max-w-2xl mx-auto">
+            NexFrigo, endüstriyel soğuk zincir altyapısını mühendislik disiplini ve dijital akılla yeniden tanımlamak amacıyla kuruldu. Tasarımdan montaja, IoT izlemeden bakım sözleşmesine — soğuk zincirinizin tamamı tek çatı altında.
         </p>
-      </div>
+    </div>
+</section>
 
-      <div>
-        <h3 class="text-white text-base font-semibold mb-6 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
-          Çözümlerimiz
-        </h3>
-        <ul class="space-y-3 text-sm">
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Soğuk Hava Deposu Kurulumu</a></li>
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Donuk & Şok Muhafaza</a></li>
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Endüstriyel İklimlendirme</a></li>
-          <li><a href="surec.html" class="hover:text-blue-400 transition-colors">Süreçlerimiz</a></li>
-        </ul>
-      </div>
-
-      <div class="lg:col-span-2 space-y-6">
-        <h3 class="text-white text-base font-semibold mb-2 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
-          Merkez & İletişim Bölümü
-        </h3>
+<!-- ══════════════════════════════════
+     MİSYON & VİZYON
+══════════════════════════════════ -->
+<section class="py-16 px-4 bg-[#0d0d0d]">
+    <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <div class="flex items-start space-x-3 text-sm">
-              <i data-lucide="map-pin" class="w-5 h-5 text-blue-500 shrink-0 mt-0.5"></i>
-              <span>Başakşehir, İkitelli Organize Sanayi Bölgesi, İstanbul, Türkiye</span>
+            <!-- Misyon -->
+            <div class="value-card">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
+                        <i data-lucide="target" class="w-5 h-5 text-[#3b82f6]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-zinc-100">Misyonumuz</h3>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    Müşterilerimizin soğuk zincir süreçlerini; anahtar teslim kurulum, akıllı otomasyon ve kesintisiz servis anlayışıyla en güvenilir, en verimli ve en ölçeklenebilir hâle getirmek. Saha deneyimimizi mühendislik disipliniyle birleştirerek her projeyi zamanında, bütçeye uygun ve standartların üzerinde teslim etmek.
+                </p>
             </div>
-            <div class="flex items-center space-x-3 text-sm">
-              <i data-lucide="mail" class="w-5 h-5 text-blue-500"></i>
-              <a href="mailto:info@nexfrigo.com" class="hover:text-blue-400">info@nexfrigo.com</a>
+            <!-- Vizyon -->
+            <div class="value-card">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
+                        <i data-lucide="telescope" class="w-5 h-5 text-[#3b82f6]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-zinc-100">Vizyonumuz</h3>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    Türkiye'nin modüler soğuk zincir teknolojisinde öncü markası olmak; Orta Doğu, Afrika ve Orta Asya pazarlarında "anahtar teslim soğuk zincir" alanında Türkiye'yi temsil eden ihracat odaklı mühendislik firması kimliğine kavuşmak. Veriye dayalı IoT altyapısıyla müşterilerimizin rekabette daima bir adım önde olmasını sağlamak.
+                </p>
             </div>
-          </div>
-          <div class="bg-zinc-900/40 p-4 rounded-xl border border-zinc-800/50 flex flex-col justify-center">
-            <span class="text-xs text-slate-400 uppercase tracking-wider">Hızlı Proje & Teklif Hattı</span>
-            <div class="flex items-center space-x-2 mt-1 text-white hover:text-blue-400 transition-colors">
-              <i data-lucide="phone" class="w-5 h-5 text-blue-500"></i>
-              <span class="text-lg font-mono font-bold">+90 (551) xxx xx xx</span>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+</section>
 
-  <!-- EN ALT TEK SATIRLIK BANT -->
-  <div class="bg-[#050505] py-8 border-t border-zinc-900 w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs gap-4">
-      <div class="flex items-center space-x-2 opacity-40 hover:opacity-70 transition-opacity">
-        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-4 w-auto object-contain">
-        <span class="font-medium tracking-widest text-zinc-400">NEXFRIGO</span>
-      </div>
-      <div class="font-mono text-zinc-600">
-        <p>© 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.</p>
-      </div>
+<!-- ══════════════════════════════════
+     FİRMA RAKAMLARI
+══════════════════════════════════ -->
+<section class="py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="metric-card">
+                <div class="text-4xl font-black text-[#3b82f6] mb-2">-40°C</div>
+                <div class="text-sm font-semibold text-zinc-300">Minimum Sıcaklık</div>
+                <div class="text-xs text-zinc-500 mt-1">Ultra derin dondurma kapasitesi</div>
+            </div>
+            <div class="metric-card">
+                <div class="text-4xl font-black text-[#3b82f6] mb-2">7/24</div>
+                <div class="text-sm font-semibold text-zinc-300">Servis & İzleme</div>
+                <div class="text-xs text-zinc-500 mt-1">IoT uyarı + anlık müdahale</div>
+            </div>
+            <div class="metric-card">
+                <div class="text-4xl font-black text-[#3b82f6] mb-2">2 Yıl</div>
+                <div class="text-sm font-semibold text-zinc-300">Tam Garanti</div>
+                <div class="text-xs text-zinc-500 mt-1">Mekanik + dijital kapsamlı</div>
+            </div>
+            <div class="metric-card">
+                <div class="text-4xl font-black text-[#3b82f6] mb-2">%35</div>
+                <div class="text-sm font-semibold text-zinc-300">Enerji Tasarrufu</div>
+                <div class="text-xs text-zinc-500 mt-1">İnvertör teknolojisiyle</div>
+            </div>
+        </div>
     </div>
-  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     ÇALIŞMA PRENSİPLERİ
+══════════════════════════════════ -->
+<section class="py-16 px-4 bg-[#0d0d0d]">
+    <div class="max-w-7xl mx-auto">
+        <div class="mb-12">
+            <span class="text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Çalışma Prensipleri</span>
+            <h2 class="text-3xl font-extrabold mt-4 mb-3">Bizi <span class="text-[#3b82f6]">Farklı Kılan</span> Dört İlke</h2>
+            <p class="text-zinc-400 text-sm max-w-lg leading-relaxed">Her projeye aynı titizlikle yaklaşıyor, söz verdiğimizi teslim ediyoruz.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="value-card flex gap-5">
+                <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="layers" class="w-6 h-6 text-[#3b82f6]"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-zinc-100 mb-2">Tam Anahtar Teslim</h4>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Proje tasarımından panel montajına, elektrik bağlantısından devreye almaya kadar tek muhatap. Koordinasyon yükü sizde değil, bizde. Siz işinize odaklanın.</p>
+                </div>
+            </div>
+            <div class="value-card flex gap-5">
+                <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="wifi" class="w-6 h-6 text-[#3b82f6]"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-zinc-100 mb-2">Teknoloji Önce</h4>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Her kuruluma IoT sensör ve uzaktan izleme dahil. Rakipleriniz sadece soğutma sistemi kurarken, sizin sisteminiz telefonunuza bağlı, veriye dayalı çalışıyor.</p>
+                </div>
+            </div>
+            <div class="value-card flex gap-5">
+                <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="zap" class="w-6 h-6 text-[#3b82f6]"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-zinc-100 mb-2">Enerji Verimliliği</h4>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Frekans invertörlü kompresör teknolojisiyle elektrik tüketiminizi %25-35 azaltıyoruz. Yatırım maliyeti kısa sürede amorti oluyor; uzun vadede ciddi kazanç.</p>
+                </div>
+            </div>
+            <div class="value-card flex gap-5">
+                <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="handshake" class="w-6 h-6 text-[#3b82f6]"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-zinc-100 mb-2">Uzun Vadeli Ortaklık</h4>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Kurulum bittikten sonra ilişkimiz bitmiyor. Yıllık bakım sözleşmesi, önleyici bakım ziyaretleri ve 7/24 arıza desteğiyle sisteminizin ömrü boyunca yanınızdayız.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════
+     MÜHENDİSLİK & TASARIM SÜRECİ (Timeline)
+══════════════════════════════════ -->
+<section class="py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+                <span class="text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Nasıl Çalışıyoruz</span>
+                <h2 class="text-3xl font-extrabold mt-4 mb-4">Her Proje <span class="text-[#3b82f6]">Dört Adımda</span> Hayata Geçiyor</h2>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-10">Saha keşfinden teslime, devreye almadan bakım sözleşmesine kadar her aşama planlanmış ve şeffaf yürütülüyor.</p>
+                <div class="space-y-0">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+                        <div class="text-xs text-[#3b82f6] font-semibold tracking-widest uppercase mb-1">Adım 1</div>
+                        <h4 class="font-bold text-zinc-100 mb-1.5">Ücretsiz Saha Keşfi & Analiz</h4>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Yerinde ölçüm, mevcut altyapı değerlendirmesi, kapasite analizi ve enerji hesabı. Müşteri hiçbir şeye gerek duymadan başlıyoruz.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+                        <div class="text-xs text-[#3b82f6] font-semibold tracking-widest uppercase mb-1">Adım 2</div>
+                        <h4 class="font-bold text-zinc-100 mb-1.5">Proje Tasarımı & Teklif</h4>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Teknik şema, ekipman seçimi, enerji verimliliği raporu ve sabit fiyatlı teklif. Şeffaf fiyatlandırma, sürpriz maliyet yok.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+                        <div class="text-xs text-[#3b82f6] font-semibold tracking-widest uppercase mb-1">Adım 3</div>
+                        <h4 class="font-bold text-zinc-100 mb-1.5">Kurulum & Devreye Alma</h4>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Panel montajı, kompresör grubu kurulumu, elektrik bağlantısı, IoT sensör entegrasyonu ve sistem devreye alımı. Anahtar teslim.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+                        <div class="text-xs text-[#3b82f6] font-semibold tracking-widest uppercase mb-1">Adım 4</div>
+                        <h4 class="font-bold text-zinc-100 mb-1.5">Bakım & Uzaktan İzleme</h4>
+                        <p class="text-zinc-400 text-sm leading-relaxed">7/24 IoT izleme, periyodik bakım ziyaretleri, gaz takibi ve arıza önce müdahale. Sisteminiz bizim sorumluluğumuzda.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Sağ: Mühendislik & Tasarım detay kartları -->
+            <div class="space-y-5">
+                <div class="value-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="cpu" class="w-5 h-5 text-[#3b82f6]"></i>
+                        <h4 class="font-bold text-zinc-100">Mühendislik ve Tasarım</h4>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Termodinamik analizler ve teknik hesaplamalarla projelerimizi sıfır hata payıyla planlıyoruz. Her soğuk oda; yük hesabı, ısı geçiş analizi ve kompresör boyutlandırmasıyla doğru kurgulanıyor. Standartların üzerinde tasarım, sahadaki sürprizleri ortadan kaldırıyor.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="leaf" class="w-5 h-5 text-[#3b82f6]"></i>
+                        <h4 class="font-bold text-zinc-100">Sürdürülebilir Verimlilik</h4>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Kullandığımız yüksek yoğunluklu poliüretan paneller ve invertörlü kompresör grupları, minimum enerji tüketimiyle maksimum soğuk zincir güvenliğini sağlıyor. Her sistemin enerji tüketim raporu müşteriye teslimde sunuluyor.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="globe" class="w-5 h-5 text-[#3b82f6]"></i>
+                        <h4 class="font-bold text-zinc-100">Uluslararası Proje Kapasitesi</h4>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Modüler konteyner soğuk oda sistemleri ihracata hazır. Orta Doğu, Afrika ve Orta Asya pazarlarında soğuk zincir altyapısı ihtiyacı hızla artıyor. Anahtar teslim paket: konteyner + soğutma grubu + IoT + devreye alma + uzaktan destek.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════
+     REFERANS ŞERİDİ
+══════════════════════════════════ -->
+<div class="marquee-wrapper">
+    <div class="marquee-track">
+        <div class="marquee-set">
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Sanovel</div><div class="marquee-sector">İlaç & Medikal</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Nobel İlaç</div><div class="marquee-sector">Eczane Deposu</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">File Market</div><div class="marquee-sector">Gıda Perakende</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Referans 4</div><div class="marquee-sector">Et & Süt Üretimi</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Referans 5</div><div class="marquee-sector">Lojistik & Depo</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Referans 6</div><div class="marquee-sector">Tarım & Meyve</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Referans 7</div><div class="marquee-sector">Konteyner Projesi</div></div></div>
+        </div>
+        <div class="marquee-set" aria-hidden="true">
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Sanovel</div><div class="marquee-sector">İlaç & Medikal</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Nobel İlaç</div><div class="marquee-sector">Eczane Deposu</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">File Market</div><div class="marquee-sector">Gıda Perakende</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Referans 4</div><div class="marquee-sector">Et & Süt Üretimi</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Referans 5</div><div class="marquee-sector">Lojistik & Depo</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Referans 6</div><div class="marquee-sector">Tarım & Meyve</div></div></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><div><div class="marquee-name">Referans 7</div><div class="marquee-sector">Konteyner Projesi</div></div></div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CTA
+══════════════════════════════════ -->
+<section class="py-20 px-4 bg-[#0d0d0d]">
+    <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-4xl font-extrabold mb-4">Soğuk Zincirinizi <span class="text-[#3b82f6]">Birlikte Kuralım</span></h2>
+        <p class="text-zinc-400 text-base mb-8 leading-relaxed">Ücretsiz saha keşfi ve maliyet analizi için hemen iletişime geçin. 24 saat içinde dönüş yapıyoruz.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="iletisim.html" class="bg-[#3b82f6] hover:bg-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center gap-2">
+                Ücretsiz Keşif Talep Et <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="tel:+905xxxxxxxxx" class="border border-zinc-700 hover:border-zinc-500 text-zinc-300 font-semibold px-8 py-3.5 rounded-xl transition">
+                Hemen Ara
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FOOTER — TEMİZ
+══════════════════════════════════ -->
+<footer class="bg-[#0d0d0d] text-slate-300 pt-12 border-t border-zinc-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 pb-12">
+            <div class="lg:col-span-1 space-y-5">
+                <div class="flex items-center gap-3">
+                    <img src="nexfrigo logo.png" alt="NexFrigo" class="h-8 w-auto object-contain">
+                    <span class="text-xl font-bold tracking-wider">
+                        <span class="text-[#3b82f6]">NEX</span><span class="text-white">FRIGO</span>
+                    </span>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed">Endüstriyel soğutma ve modüler soğuk zincir çözümleri. Türkiye'den dünyaya anahtar teslim projeler.</p>
+                <div class="flex items-center gap-2 text-xs text-emerald-400 font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    7/24 Teknik Destek Aktif
+                </div>
+            </div>
+            <div>
+                <h3 class="text-white text-sm font-semibold mb-5 tracking-wide uppercase border-l-2 border-[#3b82f6] pl-3">Çözümler</h3>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors">Soğuk Hava Deposu</a></li>
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors">Mobil Konteyner</a></li>
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors">Blast Freezer</a></li>
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors">IoT İzleme</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white text-sm font-semibold mb-5 tracking-wide uppercase border-l-2 border-[#3b82f6] pl-3">Kurumsal</h3>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="hakkimizda.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors">Hakkımızda</a></li>
+                    <li><a href="surec.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors">Süreçlerimiz</a></li>
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors">Projeler</a></li>
+                    <li><a href="iletisim.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors">İletişim</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white text-sm font-semibold mb-5 tracking-wide uppercase border-l-2 border-[#3b82f6] pl-3">İletişim</h3>
+                <div class="space-y-4 text-sm">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5"></i>
+                        <span class="text-slate-400">Başakşehir, İkitelli OSB, İstanbul</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="mail" class="w-4 h-4 text-[#3b82f6] shrink-0"></i>
+                        <a href="mailto:info@nexfrigo.com" class="text-slate-400 hover:text-[#3b82f6] transition-colors">info@nexfrigo.com</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#3b82f6] shrink-0"></i>
+                        <a href="tel:+905xxxxxxxxx" class="text-slate-400 hover:text-[#3b82f6] font-mono transition-colors">+90 (551) xxx xx xx</a>
+                    </div>
+                    <a href="iletisim.html" class="inline-flex items-center gap-2 mt-2 bg-[#3b82f6] hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition">
+                        <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                        Hızlı Teklif Hattı
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-[#070707] border-t border-zinc-900/80 py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div class="flex items-center gap-2 opacity-40">
+                <img src="nexfrigo logo.png" alt="NexFrigo" class="h-4 w-auto object-contain">
+                <span class="text-xs font-bold tracking-widest text-zinc-400">NEXFRIGO</span>
+            </div>
+            <p class="text-xs text-zinc-600 font-mono">© 2026 NexFrigo Industrial Refrigeration. Tüm hakları saklıdır.</p>
+        </div>
+    </div>
 </footer>
-<script>
-  lucide.createIcons();
-</script>
-<!-- PREMIUM FOOTER BİTİŞİ -->
 
-<a href="https://wa.me/90551xxxxxxx?text=Merhaba,%20endüstriyel%20soğutma%20sistemleri%20hakkında%20bilgi%20ve%20proje%20teklifi%20almak%20istiyorum." 
-   target="_blank" 
-   class="fixed bottom-6 right-6 z-50 flex items-center bg-emerald-600 text-white h-14 px-4 rounded-full shadow-[0_0_20px_rgba(5,150,105,0.3)] hover:bg-emerald-500 hover:shadow-[0_0_30px_rgba(5,150,105,0.5)] transition-all duration-300 group overflow-hidden">
-  
-  <div class="flex items-center justify-center w-6 h-6 shrink-0">
-    <i data-lucide="phone" class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300"></i>
-  </div>
-  
-  <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 ease-in-out text-sm font-semibold whitespace-nowrap tracking-wide">
-    Hızlı Proje Hattı
-  </span>
+<!-- WhatsApp -->
+<a href="https://wa.me/90551xxxxxxx?text=Merhaba,%20soğutma%20sistemi%20hakkında%20bilgi%20almak%20istiyorum."
+   target="_blank"
+   class="fixed bottom-6 right-6 z-50 flex items-center bg-emerald-600 text-white h-14 px-4 rounded-full shadow-[0_0_24px_rgba(5,150,105,0.35)] hover:bg-emerald-500 transition-all duration-300 group overflow-hidden">
+    <i data-lucide="message-circle" class="w-5 h-5 shrink-0 group-hover:scale-110 transition-transform duration-300"></i>
+    <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 ease-in-out text-sm font-semibold whitespace-nowrap">
+        Hızlı Proje Hattı
+    </span>
 </a>
 
-<script src="https://unpkg.com/lucide@latest"></script>
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Yukarı çık">
+    <i data-lucide="chevron-up" class="w-5 h-5 text-zinc-300"></i>
+</button>
+
 <script>
-  lucide.createIcons();
-  
-  // Mobil Menü Tetikleyici (Eğer ana sayfada hata verirse diye korundu)
-  function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    if(menu) menu.classList.toggle('hidden');
-  }
+    lucide.createIcons();
+    window.addEventListener('scroll', () => {
+        document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+    });
+    function toggleMobileMenu() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+    let lang = 'tr';
+    function toggleLanguage() {
+        lang = lang === 'tr' ? 'en' : 'tr';
+        document.getElementById('langBtn').textContent = lang === 'tr' ? 'EN' : 'TR';
+    }
 </script>
 </body>
 </html>
