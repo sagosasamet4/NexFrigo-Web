@@ -3,205 +3,872 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim | NexFrigo</title>
+    <title>İletişim | NexFrigo — Soğuk Zincir Çözümleri</title>
+
+    <!-- ── SEO & OG Meta ── -->
+    <meta name="description" content="NexFrigo ile iletişime geçin. Soğuk oda kurulumu, IoT izleme ve mobil soğutma sistemleri için ücretsiz keşif ve teklif alın.">
+    <meta property="og:title" content="İletişim | NexFrigo">
+    <meta property="og:description" content="Soğuk zincir projeniz için 24 saat içinde dönüş yapıyoruz.">
+    <meta property="og:image" content="nexfrigo logo.png">
+    <meta property="og:type" content="website">
+
+    <!-- ── Favicon ── -->
+    <link rel="icon" type="image/png" href="nexfrigo logo.png">
+    <link rel="apple-touch-icon" href="nexfrigo logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-    <style> html { overflow-y: scroll; } body { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f5f5f7; } </style>
-<script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --blue:    #3b82f6;
+            --blue-d:  #2563eb;
+            --blue-l:  #60a5fa;
+            --bg:      #0a0a0a;
+            --bg2:     #0d0d0d;
+            --bg3:     #111111;
+            --border:  #1e1e1e;
+            --text:    #f5f5f7;
+            --muted:   #71717a;
+            --sub:     #a1a1aa;
+        }
+
+        html { overflow-y: scroll; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* ─── NAV ─── */
+        nav { position: sticky; top: 0; z-index: 100; }
+
+        /* ─── HERO GRADIENT ─── */
+        .hero-bg {
+            background:
+                radial-gradient(ellipse 90% 60% at 50% -5%, rgba(59,130,246,0.13) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 40% at 80% 80%, rgba(59,130,246,0.05) 0%, transparent 60%);
+        }
+
+        /* ─── FORM CARD ─── */
+        .form-card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+        }
+        .form-input {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 14px 16px;
+            color: var(--text);
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            resize: none;
+        }
+        .form-input::placeholder { color: #52525b; }
+        .form-input:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+        }
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #71717a;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        /* ─── INFO KARTLARI ─── */
+        .info-card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: border-color 0.25s, transform 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+        .info-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--blue), transparent);
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+        .info-card:hover { border-color: rgba(59,130,246,0.35); transform: translateX(4px); }
+        .info-card:hover::before { opacity: 1; }
+
+        /* ─── SEND BUTTON ─── */
+        .btn-primary {
+            background: var(--blue);
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary:hover {
+            background: var(--blue-d);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+        }
+        .btn-primary:active { transform: translateY(0); }
+
+        /* ─── WA BUTTON ─── */
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #16a34a;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        }
+        .btn-wa:hover {
+            background: #15803d;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(22,163,74,0.35);
+        }
+
+        /* ─── ÇALIŞMA SAATLERİ KUTUSU ─── */
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 13px;
+        }
+        .hours-row:last-child { border-bottom: none; }
+        .hours-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .open  { background: rgba(16,185,129,0.1); color: #10b981; }
+        .close { background: rgba(113,113,122,0.1); color: #52525b; }
+
+        /* ─── SUCCESS STATE ─── */
+        .success-overlay {
+            display: none;
+            position: absolute;
+            inset: 0;
+            background: var(--bg3);
+            border-radius: 20px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            z-index: 10;
+        }
+        .success-overlay.show { display: flex; }
+
+        /* ─── SCROLL TOP ─── */
+        #scrollTop {
+            position: fixed; bottom: 88px; right: 24px; z-index: 50;
+            width: 44px; height: 44px;
+            background: #1e293b; border: 1px solid #334155; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; opacity: 0; pointer-events: none; transition: all 0.3s;
+        }
+        #scrollTop.visible { opacity: 1; pointer-events: all; }
+        #scrollTop:hover { background: var(--blue); border-color: var(--blue); }
+
+        /* ─── MAP EMBED ─── */
+        .map-wrap {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .map-wrap iframe { display: block; }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.6s ease both; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* ─── SELECT ÖZEL ─── */
+        select.form-input { appearance: none; cursor: pointer; }
+        select.form-input option { background: #1a1a1a; color: #f5f5f7; }
+
+        /* ─── TELEFON HATTI ─── */
+        .phone-strip {
+            background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(59,130,246,0.03) 100%);
+            border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 16px;
+            padding: 20px 24px;
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
 
-    <nav class="border-b border-zinc-800 bg-[#0d0d0d]/95 sticky top-0 z-50 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-                    <img src="nexfrigo logo.png" alt="NexFrigo" class="h-12 w-auto">
-                    <span class="font-extrabold text-xl tracking-wider text-[#3b82f6]">NEX<span class="text-zinc-100">FRIGO</span></span>
+<!-- ════════════════════════════════
+     NAVİGASYON
+════════════════════════════════ -->
+<nav class="border-b border-zinc-800/60 bg-[#0a0a0a]/95 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+                <img src="nexfrigo logo.png" alt="NexFrigo" class="h-12 w-auto object-contain">
+                <span class="font-extrabold text-xl tracking-wider">
+                    <span class="text-[#3b82f6]">NEX</span><span class="text-zinc-100">FRIGO</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex items-center gap-8">
+                <div class="flex gap-6 text-sm font-medium">
+                    <a href="index.html"      class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Ana Sayfa"  data-en="Home">Ana Sayfa</a>
+                    <a href="hakkimizda.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+                    <a href="surec.html"      class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Süreç"      data-en="Process">Süreç</a>
+                    <a href="projeler.html"   class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Projeler"   data-en="Projects">Projeler</a>
+                    <a href="iletisim.html"   class="text-[#3b82f6] border-b-2 border-[#3b82f6] pb-1 font-semibold" data-tr="İletişim" data-en="Contact">İletişim</a>
+                </div>
+                <a href="iletisim.html" class="bg-[#3b82f6] hover:bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition">
+                    <span data-tr="Teklif Al →" data-en="Get Quote →">Teklif Al →</span>
                 </a>
-               
-                <div class="hidden lg:flex items-center space-x-8">
-                    <div class="flex space-x-6 text-sm font-medium">
-                        <a href="index.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-                        <a href="hakkimizda.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
-                        <a href="surec.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Süreç" data-en="Process">Süreç</a>
-                        <a href="projeler.html" class="text-zinc-400 hover:text-zinc-100 transition pb-1" data-tr="Projeler" data-en="Projects">Projeler</a>
-                        <a href="iletisim.html" class="text-[#3b82f6] font-semibold border-b-2 border-[#3b82f6] pb-1" data-tr="İletişim" data-en="Contact">İletişim</a>
+                <button onclick="toggleLanguage()" id="langBtn"
+                    class="border border-zinc-700 hover:border-[#3b82f6] text-xs font-bold px-3 py-1.5 rounded-md text-zinc-300 transition">EN</button>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <div class="flex lg:hidden items-center gap-3">
+                <button onclick="toggleLanguage()" id="langBtnMob"
+                    class="border border-zinc-700 text-xs font-bold px-2.5 py-1 rounded-md text-zinc-300">EN</button>
+                <button onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-white p-1">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-zinc-800 bg-[#0a0a0a] px-4 pt-4 pb-6 space-y-2">
+        <a href="index.html"      class="block text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-800/50" data-tr="Ana Sayfa"  data-en="Home">Ana Sayfa</a>
+        <a href="hakkimizda.html" class="block text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-800/50" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+        <a href="surec.html"      class="block text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-800/50" data-tr="Süreç"      data-en="Process">Süreç</a>
+        <a href="projeler.html"   class="block text-zinc-400 hover:text-zinc-100 py-2.5 border-b border-zinc-800/50" data-tr="Projeler"   data-en="Projects">Projeler</a>
+        <a href="iletisim.html"   class="block text-[#3b82f6] font-bold py-2.5" data-tr="İletişim" data-en="Contact">İletişim</a>
+        <a href="iletisim.html"   class="block mt-3 bg-[#3b82f6] text-white text-center py-3 rounded-lg font-semibold"
+           data-tr="Teklif Al →" data-en="Get Quote →">Teklif Al →</a>
+    </div>
+</nav>
+
+<!-- ════════════════════════════════
+     HERO BANT
+════════════════════════════════ -->
+<section class="hero-bg pt-16 pb-12 px-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="fade-up text-center">
+            <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-blue-400 text-xs font-semibold tracking-widest uppercase"
+                    data-tr="24 Saat İçinde Dönüş Yapıyoruz"
+                    data-en="We Respond Within 24 Hours">24 Saat İçinde Dönüş Yapıyoruz</span>
+            </span>
+            <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-4">
+                <span class="text-white" data-tr="Projenizi Birlikte" data-en="Let's Design Your">Projenizi Birlikte</span><br>
+                <span class="text-[#3b82f6]" data-tr="Tasarlayalım" data-en="Project Together">Tasarlayalım</span>
+            </h1>
+            <p class="text-zinc-400 text-base max-w-xl mx-auto leading-relaxed"
+               data-tr="Soğuk oda kurulumu, IoT izleme veya mobil soğutma çözümleri için formu doldurun ya da direkt arayın. Teknik ekibimiz aynı gün iletişime geçer."
+               data-en="Fill out the form for cold room installation, IoT monitoring or mobile cooling solutions, or call directly. Our technical team will reach out the same day.">
+                Soğuk oda kurulumu, IoT izleme veya mobil soğutma çözümleri için formu doldurun ya da direkt arayın. Teknik ekibimiz aynı gün iletişime geçer.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════
+     ANA GRID: FORM + BİLGİ
+════════════════════════════════ -->
+<section class="pb-20 px-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+
+            <!-- ── SOL: FORM (3/5) ── -->
+            <div class="lg:col-span-3 fade-up delay-1">
+                <div class="form-card p-8 relative">
+
+                    <!-- Başlık -->
+                    <div class="mb-8">
+                        <h2 class="text-xl font-bold text-white mb-1"
+                            data-tr="Teklif & Keşif Talebi"
+                            data-en="Quote & Discovery Request">Teklif & Keşif Talebi</h2>
+                        <p class="text-zinc-500 text-sm"
+                           data-tr="Aşağıdaki formu doldurun, mühendislik ekibimiz sizinle iletişime geçsin."
+                           data-en="Fill out the form below and our engineering team will contact you.">
+                           Aşağıdaki formu doldurun, mühendislik ekibimiz sizinle iletişime geçsin.</p>
                     </div>
-                    <button onclick="toggleLanguage()" id="langBtn" class="border border-zinc-700 hover:border-[#3b82f6] text-xs font-bold px-3 py-1.5 rounded-md text-zinc-300 transition">EN</button>
+
+                    <form id="contactForm" novalidate class="space-y-5">
+                        <!-- Ad Soyad + Şirket -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="form-label" data-tr="Ad Soyad *" data-en="Full Name *">Ad Soyad *</label>
+                                <input type="text" id="name" class="form-input"
+                                    placeholder="Ahmet Yılmaz" data-ph-tr="Ahmet Yılmaz" data-ph-en="John Smith" required>
+                                <span class="field-err text-xs text-red-400 mt-1 hidden"
+                                    data-tr="Bu alan zorunludur." data-en="This field is required."></span>
+                            </div>
+                            <div>
+                                <label class="form-label" data-tr="Şirket Adı" data-en="Company Name">Şirket Adı</label>
+                                <input type="text" id="company" class="form-input"
+                                    placeholder="Örnek A.Ş." data-ph-tr="Örnek A.Ş." data-ph-en="Example Corp.">
+                            </div>
+                        </div>
+
+                        <!-- Telefon + E-posta -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="form-label" data-tr="Telefon *" data-en="Phone *">Telefon *</label>
+                                <input type="tel" id="phone" class="form-input"
+                                    placeholder="+90 5xx xxx xx xx" required>
+                                <span class="field-err text-xs text-red-400 mt-1 hidden"
+                                    data-tr="Geçerli bir numara girin." data-en="Enter a valid number."></span>
+                            </div>
+                            <div>
+                                <label class="form-label" data-tr="E-posta" data-en="Email">E-posta</label>
+                                <input type="email" id="email" class="form-input"
+                                    placeholder="ahmet@sirket.com" data-ph-tr="ahmet@sirket.com" data-ph-en="john@company.com">
+                            </div>
+                        </div>
+
+                        <!-- Hizmet seçimi -->
+                        <div>
+                            <label class="form-label" data-tr="İhtiyaç Duyduğunuz Hizmet" data-en="Service Needed">İhtiyaç Duyduğunuz Hizmet</label>
+                            <select id="service" class="form-input">
+                                <option value="" data-tr="— Seçiniz —" data-en="— Select —">— Seçiniz —</option>
+                                <option value="sogukoda"     data-tr="Endüstriyel Soğuk Oda Kurulumu"   data-en="Industrial Cold Room Setup">Endüstriyel Soğuk Oda Kurulumu</option>
+                                <option value="konteyner"   data-tr="Mobil Konteyner Soğutma"           data-en="Mobile Container Cooling">Mobil Konteyner Soğutma</option>
+                                <option value="blast"       data-tr="Blast Freezer / Şoklama"           data-en="Blast Freezer">Blast Freezer / Şoklama</option>
+                                <option value="iot"         data-tr="IoT Uzaktan İzleme Sistemi"        data-en="IoT Remote Monitoring">IoT Uzaktan İzleme Sistemi</option>
+                                <option value="bakim"       data-tr="Bakım & Servis Sözleşmesi"         data-en="Maintenance & Service">Bakım & Servis Sözleşmesi</option>
+                                <option value="yazilim"     data-tr="Akıllı Depo Yazılımı (Yakında)"   data-en="Smart Warehouse Software (Soon)">Akıllı Depo Yazılımı (Yakında)</option>
+                                <option value="diger"       data-tr="Diğer"                             data-en="Other">Diğer</option>
+                            </select>
+                        </div>
+
+                        <!-- Proje büyüklüğü -->
+                        <div>
+                            <label class="form-label" data-tr="Tahmini Kapasite / Alan" data-en="Estimated Capacity / Area">Tahmini Kapasite / Alan</label>
+                            <select id="capacity" class="form-input">
+                                <option value="" data-tr="— Seçiniz —" data-en="— Select —">— Seçiniz —</option>
+                                <option value="kucuk"   data-tr="< 50 m²  (Küçük depo / dükkan)"          data-en="< 50 m² (Small warehouse / shop)">< 50 m²  — Küçük depo / dükkan</option>
+                                <option value="orta"    data-tr="50–200 m²  (Orta ölçek)"                  data-en="50–200 m² (Medium scale)">50–200 m² — Orta ölçek</option>
+                                <option value="buyuk"   data-tr="200–1000 m²  (Büyük endüstriyel)"        data-en="200–1000 m² (Large industrial)">200–1000 m² — Büyük endüstriyel</option>
+                                <option value="ulusal"  data-tr="> 1000 m²  (Ulusal lojistik)"             data-en="> 1000 m² (National logistics)">> 1000 m² — Ulusal lojistik</option>
+                                <option value="bilmiyorum" data-tr="Henüz bilmiyorum"                      data-en="I don't know yet">Henüz bilmiyorum</option>
+                            </select>
+                        </div>
+
+                        <!-- Mesaj -->
+                        <div>
+                            <label class="form-label" data-tr="Projenizi Kısaca Anlatın" data-en="Briefly Describe Your Project">Projenizi Kısaca Anlatın</label>
+                            <textarea id="message" rows="4" class="form-input"
+                                placeholder="Mevcut soğuk odamız var, yeni IoT izleme sistemi kurmak istiyoruz..."
+                                data-ph-tr="Mevcut soğuk odamız var, yeni IoT izleme sistemi kurmak istiyoruz..."
+                                data-ph-en="We have an existing cold room and want to install a new IoT monitoring system..."></textarea>
+                        </div>
+
+                        <!-- KVKK onay -->
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="kvkk" class="mt-0.5 accent-[#3b82f6] w-4 h-4 flex-shrink-0">
+                            <label for="kvkk" class="text-xs text-zinc-500 leading-relaxed cursor-pointer"
+                                data-tr="Kişisel verilerimin NexFrigo tarafından iletişim amaçlı işlenmesine onay veriyorum (KVKK)."
+                                data-en="I consent to my personal data being processed by NexFrigo for contact purposes (GDPR/KVKK).">
+                                Kişisel verilerimin NexFrigo tarafından iletişim amaçlı işlenmesine onay veriyorum (KVKK).
+                            </label>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="submit" class="btn-primary flex-1 justify-center">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span data-tr="Teklif Talebini Gönder" data-en="Send Quote Request">Teklif Talebini Gönder</span>
+                            </button>
+                            <a href="https://wa.me/905383627763?text=Merhaba%2C%20soğuk%20zincir%20projesi%20için%20bilgi%20almak%20istiyorum."
+                               target="_blank" class="btn-wa justify-center">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                </svg>
+                                <span data-tr="WhatsApp" data-en="WhatsApp">WhatsApp</span>
+                            </a>
+                        </div>
+                    </form>
+
+                    <!-- Success overlay -->
+                    <div class="success-overlay" id="successOverlay">
+                        <div class="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center">
+                            <i data-lucide="check-circle" class="w-8 h-8 text-emerald-400"></i>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-white mb-2"
+                                data-tr="Talebiniz Alındı!" data-en="Request Received!">Talebiniz Alındı!</h3>
+                            <p class="text-zinc-400 text-sm"
+                               data-tr="Mühendislik ekibimiz en geç 24 saat içinde sizinle iletişime geçecek."
+                               data-en="Our engineering team will contact you within 24 hours at most.">
+                               Mühendislik ekibimiz en geç 24 saat içinde sizinle iletişime geçecek.</p>
+                        </div>
+                        <button onclick="resetForm()"
+                            class="text-xs text-zinc-500 hover:text-zinc-300 transition mt-2 flex items-center gap-1">
+                            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                            <span data-tr="Yeni talep oluştur" data-en="Create new request">Yeni talep oluştur</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── SAĞ: BİLGİ PANELI (2/5) ── -->
+            <div class="lg:col-span-2 space-y-5 fade-up delay-2">
+
+                <!-- Doğrudan İletişim -->
+                <div class="info-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
+                            <i data-lucide="phone-call" class="w-4 h-4 text-[#3b82f6]"></i>
+                        </div>
+                        <div class="font-bold text-sm" data-tr="Doğrudan Ara" data-en="Call Direct">Doğrudan Ara</div>
+                    </div>
+                    <a href="tel:+905383627763"
+                       class="block mono text-2xl font-bold text-white hover:text-[#3b82f6] transition mb-1">
+                        +90 538 362 77 63
+                    </a>
+                    <div class="text-xs text-zinc-500" data-tr="Pazartesi–Cumartesi · 08:00–20:00" data-en="Mon–Sat · 08:00–20:00">
+                        Pazartesi–Cumartesi · 08:00–20:00
+                    </div>
                 </div>
 
-                <div class="flex lg:hidden items-center gap-4">
-                    <button onclick="toggleLanguage()" id="langBtnMob" class="border border-zinc-700 text-xs font-bold px-2.5 py-1 rounded-md text-zinc-300">EN</button>
-                    <button onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-white">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
+                <!-- WhatsApp -->
+                <div class="info-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center">
+                            <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </div>
+                        <div class="font-bold text-sm">WhatsApp</div>
+                    </div>
+                    <p class="text-zinc-400 text-xs mb-3"
+                       data-tr="Proje fotoğrafı, ölçü veya teknik detay paylaşmak için WhatsApp hattımızı kullanın."
+                       data-en="Use our WhatsApp line to share project photos, measurements or technical details.">
+                       Proje fotoğrafı, ölçü veya teknik detay paylaşmak için WhatsApp hattımızı kullanın.</p>
+                    <a href="https://wa.me/905383627763?text=Merhaba%2C%20soğuk%20zincir%20projesi%20için%20bilgi%20almak%20istiyorum."
+                       target="_blank"
+                       class="inline-flex items-center gap-2 text-emerald-400 text-sm font-semibold hover:text-emerald-300 transition">
+                        <span data-tr="WhatsApp'tan Yaz →" data-en="Message on WhatsApp →">WhatsApp'tan Yaz →</span>
+                    </a>
+                </div>
+
+                <!-- E-posta -->
+                <div class="info-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
+                            <i data-lucide="mail" class="w-4 h-4 text-[#3b82f6]"></i>
+                        </div>
+                        <div class="font-bold text-sm" data-tr="E-posta" data-en="Email">E-posta</div>
+                    </div>
+                    <a href="mailto:info@nexfrigo.com"
+                       class="block text-[#3b82f6] font-semibold text-sm hover:text-blue-400 transition mb-1">
+                        info@nexfrigo.com
+                    </a>
+                    <div class="text-xs text-zinc-500"
+                         data-tr="Teknik belgeler ve proje dosyaları için tercih edin."
+                         data-en="Preferred for technical documents and project files.">
+                         Teknik belgeler ve proje dosyaları için tercih edin.</div>
+                </div>
+
+                <!-- Adres -->
+                <div class="info-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-[#3b82f6]"></i>
+                        </div>
+                        <div class="font-bold text-sm" data-tr="Merkez Ofis" data-en="Head Office">Merkez Ofis</div>
+                    </div>
+                    <div class="text-zinc-400 text-sm leading-relaxed"
+                         data-tr="Başakşehir, İkitelli Organize Sanayi Bölgesi<br>İstanbul, Türkiye"
+                         data-en="Başakşehir, İkitelli Organized Industrial Zone<br>Istanbul, Turkey">
+                         Başakşehir, İkitelli Organize Sanayi Bölgesi<br>İstanbul, Türkiye
+                    </div>
+                    <a href="https://maps.google.com/?q=İkitelli+Organize+Sanayi+Bölgesi+İstanbul" target="_blank"
+                       class="inline-flex items-center gap-1.5 text-xs text-[#3b82f6] font-semibold mt-3 hover:text-blue-400 transition">
+                        <i data-lucide="external-link" class="w-3 h-3"></i>
+                        <span data-tr="Haritada Göster" data-en="Show on Map">Haritada Göster</span>
+                    </a>
+                </div>
+
+                <!-- Çalışma saatleri -->
+                <div class="info-card">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-9 h-9 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
+                            <i data-lucide="clock" class="w-4 h-4 text-[#3b82f6]"></i>
+                        </div>
+                        <div class="font-bold text-sm" data-tr="Çalışma Saatleri" data-en="Business Hours">Çalışma Saatleri</div>
+                    </div>
+                    <div class="space-y-0">
+                        <div class="hours-row">
+                            <span class="text-zinc-300" data-tr="Pazartesi – Cuma" data-en="Monday – Friday">Pazartesi – Cuma</span>
+                            <span class="hours-badge open">08:00 – 20:00</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="text-zinc-300" data-tr="Cumartesi" data-en="Saturday">Cumartesi</span>
+                            <span class="hours-badge open">09:00 – 17:00</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="text-zinc-300" data-tr="Pazar" data-en="Sunday">Pazar</span>
+                            <span class="hours-badge close" data-tr="Kapalı" data-en="Closed">Kapalı</span>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-zinc-800 flex items-center gap-2 text-xs text-emerald-400 font-medium">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span data-tr="IoT Arıza Alarmı 7/24 aktif" data-en="IoT Fault Alert active 24/7">IoT Arıza Alarmı 7/24 aktif</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="mobileMenu" class="hidden lg:hidden border-t border-zinc-800 bg-[#0d0d0d] px-4 pt-4 pb-6 space-y-3">
-            <a href="index.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
-            <a href="hakkimizda.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
-            <a href="surec.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Süreç" data-en="Process">Süreç</a>
-            <a href="projeler.html" class="block text-zinc-400 hover:text-zinc-100 text-base py-2" data-tr="Projeler" data-en="Projects">Projeler</a>
-            <a href="iletisim.html" class="block text-[#3b82f6] font-bold text-base py-2" data-tr="İletişim" data-en="Contact">İletişim</a>
-        </div>
-    </nav>
-
-    <section class="py-24 max-w-5xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-extrabold mb-4 text-zinc-100" data-tr="Bizimle İletişime Geçin" data-en="Get in Touch">Bizimle İletişime Geçin</h2>
-            <p class="text-zinc-400 text-sm" data-tr="Projeniz için teknik destek, fiyat teklifi ve mühendislik çözümleri sunmaya hazırız." data-en="We are ready to provide technical support, price quotations, and engineering solutions for your project.">Projeniz için teknik destek, fiyat teklifi ve mühendislik çözümleri sunmaya hazırız.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            <div class="bg-[#121212] p-8 rounded-2xl border border-zinc-900 text-center flex flex-col justify-center hover:border-[#3b82f6] transition duration-300">
-                <span class="text-3xl block mb-2">📞</span>
-                <h3 class="font-bold text-base text-zinc-200 mb-2" data-tr="Telefon & WhatsApp" data-en="Phone & WhatsApp">Telefon & WhatsApp</h3>
-                <a href="https://wa.me/905383627763" target="_blank" class="text-[#3b82f6] font-bold text-md hover:underline">+90 538 362 77 63</a>
-            </div>
-            
-            <div class="rounded-2xl overflow-hidden border border-zinc-900 h-48 md:h-auto">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="NexFrigo HQ" class="w-full h-full object-cover opacity-30 filter grayscale">
-            </div>
-
-            <div class="bg-[#121212] p-8 rounded-2xl border border-zinc-900 text-center flex flex-col justify-center hover:border-[#3b82f6] transition duration-300">
-                <span class="text-3xl block mb-2">✉️</span>
-                <h3 class="font-bold text-base text-zinc-200 mb-2" data-tr="E-Posta Hattı" data-en="Email Address">E-Posta Hattı</h3>
-                <a href="mailto:info@nexfrigo.com" class="text-[#3b82f6] font-bold text-md hover:underline">info@nexfrigo.com</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREMIUM FOOTER BAŞLANGICI (KURUMSAL KİMLİKLEŞTİRİLMİŞ) -->
-<!-- ALTERNATİF B: ELİT SINIR ÇİZGİLİ FOOTER -->
-<footer class="bg-[#0d0d0d] text-slate-300 pt-8 font-sans w-full border-t border-zinc-800/60">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- ÜST BÖLÜM: Üçlü Güven ve Kalite Blokları -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-zinc-800/40">
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="cpu" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">İleri Mühendislik</h4>
-          <p class="text-sm text-slate-400">Üst düzey otomasyonlu endüstriyel sistemler.</p>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="shield-check" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">2 Yıl Kesintisiz Garanti</h4>
-          <p class="text-sm text-slate-400">Tüm mekanik ve dijital kurulumlar koruma altında.</p>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="clock" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">7/24 Teknik Servis</h4>
-          <p class="text-sm text-slate-400">Soğuk zincirin kırılmaması için anlık müdahale.</p>
-        </div>
-      </div>
     </div>
+</section>
 
-    <!-- ORTA BÖLÜM: Kurumsal Linkler ve İletişim Havuzu -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 py-12">
-      <div class="lg:col-span-1 space-y-6">
-        <div class="flex items-center space-x-3">
-          <img src="nexfrigo logo.png" alt="NexFrigo Logo" class="h-8 w-auto object-contain">
-          <span class="text-2xl font-semibold tracking-wider text-white">
-            <span class="text-blue-500">NEX</span>FRIGO
-          </span>
+<!-- ════════════════════════════════
+     HARİTA
+════════════════════════════════ -->
+<section class="pb-20 px-4 fade-up delay-3">
+    <div class="max-w-7xl mx-auto">
+        <div class="map-wrap h-64 md:h-80">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48088.97505453948!2d28.735878!3d41.066193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa5a74ff9a027%3A0x6069f7e5ad44c3c3!2sIkitelli%20Organize%20Sanayi%20Bolgesi!5e0!3m2!1str!2str!4v1700000000000"
+                width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.85);"
+                allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
-        <p class="text-sm text-slate-400 leading-relaxed">
-          Endüstriyel iklimlendirme ve soğuk hava depoları alanında yüksek performanslı, enerji tasarruflu ve akıllı lojistik çözümler üreten teknoloji odaklı mühendislik firması.
-        </p>
-      </div>
+    </div>
+</section>
 
-      <div>
-        <h3 class="text-white text-base font-semibold mb-6 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
-          Çözümlerimiz
-        </h3>
-        <ul class="space-y-3 text-sm">
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Soğuk Hava Deposu Kurulumu</a></li>
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Donuk & Şok Muhafaza</a></li>
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Endüstriyel İklimlendirme</a></li>
-          <li><a href="surec.html" class="hover:text-blue-400 transition-colors">Süreçlerimiz</a></li>
-        </ul>
-      </div>
-
-      <div class="lg:col-span-2 space-y-6">
-        <h3 class="text-white text-base font-semibold mb-2 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
-          Merkez & İletişim Bölümü
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <div class="flex items-start space-x-3 text-sm">
-              <i data-lucide="map-pin" class="w-5 h-5 text-blue-500 shrink-0 mt-0.5"></i>
-              <span>Başakşehir, İkitelli Organize Sanayi Bölgesi, İstanbul, Türkiye</span>
-            </div>
-            <div class="flex items-center space-x-3 text-sm">
-              <i data-lucide="mail" class="w-5 h-5 text-blue-500"></i>
-              <a href="mailto:info@nexfrigo.com" class="hover:text-blue-400">info@nexfrigo.com</a>
-            </div>
-          </div>
-          <div class="bg-zinc-900/40 p-4 rounded-xl border border-zinc-800/50 flex flex-col justify-center">
-            <span class="text-xs text-slate-400 uppercase tracking-wider">Hızlı Proje & Teklif Hattı</span>
-            <div class="flex items-center space-x-2 mt-1 text-white hover:text-blue-400 transition-colors">
-              <i data-lucide="phone" class="w-5 h-5 text-blue-500"></i>
-              <span class="text-lg font-mono font-bold">+90 (551) xxx xx xx</span>
-            </div>
-          </div>
+<!-- ════════════════════════════════
+     SSS — HIZLI SORULAR
+════════════════════════════════ -->
+<section class="pb-20 px-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="mb-10">
+            <span class="text-[#3b82f6] text-xs font-bold tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20"
+                  data-tr="Sık Sorulan" data-en="FAQ">Sık Sorulan</span>
+            <h2 class="text-3xl font-extrabold mt-4 mb-2"
+                data-tr="Sıkça Sorulan Sorular"
+                data-en="Frequently Asked Questions">Sıkça Sorulan Sorular</h2>
         </div>
-      </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- SSS 1 -->
+            <div class="info-card">
+                <h4 class="font-bold text-zinc-100 mb-2 flex items-start gap-2">
+                    <span class="text-[#3b82f6] font-black text-lg leading-none mt-0.5">?</span>
+                    <span data-tr="Keşif ziyareti ücretsiz mi?"
+                          data-en="Is the site visit free of charge?">Keşif ziyareti ücretsiz mi?</span>
+                </h4>
+                <p class="text-zinc-400 text-sm leading-relaxed pl-6"
+                   data-tr="Evet. Saha ölçümü, mevcut altyapı analizi ve kapasite hesabı tamamen ücretsizdir. Hiçbir taahhüt gerektirmez."
+                   data-en="Yes. Site measurement, existing infrastructure analysis and capacity calculation are completely free. No commitment required.">
+                   Evet. Saha ölçümü, mevcut altyapı analizi ve kapasite hesabı tamamen ücretsizdir. Hiçbir taahhüt gerektirmez.</p>
+            </div>
+            <!-- SSS 2 -->
+            <div class="info-card">
+                <h4 class="font-bold text-zinc-100 mb-2 flex items-start gap-2">
+                    <span class="text-[#3b82f6] font-black text-lg leading-none mt-0.5">?</span>
+                    <span data-tr="Kurulum ne kadar sürer?"
+                          data-en="How long does installation take?">Kurulum ne kadar sürer?</span>
+                </h4>
+                <p class="text-zinc-400 text-sm leading-relaxed pl-6"
+                   data-tr="Kapasiteye göre değişmekle birlikte küçük soğuk odalar 3–5 gün, büyük endüstriyel depolar 2–4 hafta arasında tamamlanır."
+                   data-en="Depending on capacity, small cold rooms take 3–5 days, large industrial warehouses 2–4 weeks.">
+                   Kapasiteye göre değişmekle birlikte küçük soğuk odalar 3–5 gün, büyük endüstriyel depolar 2–4 hafta arasında tamamlanır.</p>
+            </div>
+            <!-- SSS 3 -->
+            <div class="info-card">
+                <h4 class="font-bold text-zinc-100 mb-2 flex items-start gap-2">
+                    <span class="text-[#3b82f6] font-black text-lg leading-none mt-0.5">?</span>
+                    <span data-tr="Garanti kapsamı nedir?"
+                          data-en="What does the warranty cover?">Garanti kapsamı nedir?</span>
+                </h4>
+                <p class="text-zinc-400 text-sm leading-relaxed pl-6"
+                   data-tr="Tüm kurulumlar 2 yıl tam garanti kapsamındadır. Mekanik parçalar, panel sistemi ve IoT donanımı garanti dahilindedir."
+                   data-en="All installations are covered by a 2-year full warranty including mechanical parts, panel system and IoT hardware.">
+                   Tüm kurulumlar 2 yıl tam garanti kapsamındadır. Mekanik parçalar, panel sistemi ve IoT donanımı garanti dahilindedir.</p>
+            </div>
+            <!-- SSS 4 -->
+            <div class="info-card">
+                <h4 class="font-bold text-zinc-100 mb-2 flex items-start gap-2">
+                    <span class="text-[#3b82f6] font-black text-lg leading-none mt-0.5">?</span>
+                    <span data-tr="İstanbul dışına hizmet veriyor musunuz?"
+                          data-en="Do you serve outside Istanbul?">İstanbul dışına hizmet veriyor musunuz?</span>
+                </h4>
+                <p class="text-zinc-400 text-sm leading-relaxed pl-6"
+                   data-tr="Evet. Türkiye genelinde ve uluslararası projelerde (Orta Doğu, Afrika, Orta Asya) hizmet veriyoruz."
+                   data-en="Yes. We serve across Turkey and on international projects (Middle East, Africa, Central Asia).">
+                   Evet. Türkiye genelinde ve uluslararası projelerde (Orta Doğu, Afrika, Orta Asya) hizmet veriyoruz.</p>
+            </div>
+        </div>
     </div>
-  </div>
+</section>
 
-  <!-- EN ALT TEK SATIRLIK BANT -->
-  <div class="bg-[#050505] py-8 border-t border-zinc-900 w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs gap-4">
-      <div class="flex items-center space-x-2 opacity-40 hover:opacity-70 transition-opacity">
-        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-4 w-auto object-contain">
-        <span class="font-medium tracking-widest text-zinc-400">NEXFRIGO</span>
-      </div>
-      <div class="font-mono text-zinc-600">
-        <p>© 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.</p>
-      </div>
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer class="bg-[#0d0d0d] text-slate-300 pt-12 border-t border-zinc-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 pb-12">
+            <!-- Marka -->
+            <div class="lg:col-span-1 space-y-5">
+                <div class="flex items-center gap-3">
+                    <img src="nexfrigo logo.png" alt="NexFrigo" class="h-8 w-auto object-contain">
+                    <span class="text-xl font-bold tracking-wider">
+                        <span class="text-[#3b82f6]">NEX</span><span class="text-white">FRIGO</span>
+                    </span>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed"
+                   data-tr="Endüstriyel soğutma ve modüler soğuk zincir çözümleri. Türkiye'den dünyaya anahtar teslim projeler."
+                   data-en="Industrial refrigeration and modular cold chain solutions. Turnkey projects from Turkey to the world.">
+                   Endüstriyel soğutma ve modüler soğuk zincir çözümleri. Türkiye'den dünyaya anahtar teslim projeler.</p>
+                <div class="flex items-center gap-2 text-xs text-emerald-400 font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span data-tr="7/24 Teknik Destek Aktif" data-en="7/24 Technical Support Active">7/24 Teknik Destek Aktif</span>
+                </div>
+            </div>
+            <!-- Çözümler -->
+            <div>
+                <h3 class="text-white text-sm font-semibold mb-5 tracking-wide uppercase border-l-2 border-[#3b82f6] pl-3"
+                    data-tr="Çözümler" data-en="Solutions">Çözümler</h3>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors" data-tr="Soğuk Hava Deposu" data-en="Cold Storage">Soğuk Hava Deposu</a></li>
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors" data-tr="Mobil Konteyner" data-en="Mobile Container">Mobil Konteyner</a></li>
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors" data-tr="Blast Freezer" data-en="Blast Freezer">Blast Freezer</a></li>
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors" data-tr="IoT İzleme" data-en="IoT Monitoring">IoT İzleme</a></li>
+                    <li><a href="projeler.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors" data-tr="Bakım Sözleşmesi" data-en="Maintenance Contract">Bakım Sözleşmesi</a></li>
+                </ul>
+            </div>
+            <!-- Kurumsal -->
+            <div>
+                <h3 class="text-white text-sm font-semibold mb-5 tracking-wide uppercase border-l-2 border-[#3b82f6] pl-3"
+                    data-tr="Kurumsal" data-en="Corporate">Kurumsal</h3>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="hakkimizda.html" class="text-slate-400 hover:text-[#3b82f6] transition-colors" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a></li>
+                    <li><a href="surec.html"       class="text-slate-400 hover:text-[#3b82f6] transition-colors" data-tr="Süreçlerimiz" data-en="Our Process">Süreçlerimiz</a></li>
+                    <li><a href="projeler.html"    class="text-slate-400 hover:text-[#3b82f6] transition-colors" data-tr="Projeler" data-en="Projects">Projeler</a></li>
+                    <li><a href="iletisim.html"    class="text-slate-400 hover:text-[#3b82f6] transition-colors" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                </ul>
+            </div>
+            <!-- İletişim -->
+            <div>
+                <h3 class="text-white text-sm font-semibold mb-5 tracking-wide uppercase border-l-2 border-[#3b82f6] pl-3"
+                    data-tr="İletişim" data-en="Contact">İletişim</h3>
+                <div class="space-y-4 text-sm">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-[#3b82f6] shrink-0 mt-0.5"></i>
+                        <span class="text-slate-400"
+                              data-tr="Başakşehir, İkitelli OSB, İstanbul"
+                              data-en="Başakşehir, İkitelli OSB, Istanbul">Başakşehir, İkitelli OSB, İstanbul</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="mail" class="w-4 h-4 text-[#3b82f6] shrink-0"></i>
+                        <a href="mailto:info@nexfrigo.com" class="text-slate-400 hover:text-[#3b82f6] transition-colors">info@nexfrigo.com</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#3b82f6] shrink-0"></i>
+                        <a href="tel:+905383627763" class="text-slate-400 hover:text-[#3b82f6] mono transition-colors">+90 538 362 77 63</a>
+                    </div>
+                    <a href="iletisim.html" class="inline-flex items-center gap-2 mt-2 bg-[#3b82f6] hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition">
+                        <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                        <span data-tr="Hızlı Teklif Hattı" data-en="Quick Quote Line">Hızlı Teklif Hattı</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+    <!-- Alt çizgi -->
+    <div class="bg-[#070707] border-t border-zinc-900/80 py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div class="flex items-center gap-2 opacity-40">
+                <img src="nexfrigo logo.png" alt="NexFrigo" class="h-4 w-auto object-contain">
+                <span class="text-xs font-bold tracking-widest text-zinc-400">NEXFRIGO</span>
+            </div>
+            <p class="text-xs text-zinc-600 mono"
+               data-tr="© 2026 NexFrigo Industrial Refrigeration. Tüm hakları saklıdır."
+               data-en="© 2026 NexFrigo Industrial Refrigeration. All rights reserved.">
+               © 2026 NexFrigo Industrial Refrigeration. Tüm hakları saklıdır.</p>
+        </div>
+    </div>
 </footer>
+
+<!-- ════════════════════════════════
+     WhatsApp Sabit Butonu
+════════════════════════════════ -->
+<a href="https://wa.me/905383627763?text=Merhaba%2C%20soğuk%20zincir%20projesi%20için%20bilgi%20almak%20istiyorum."
+   target="_blank"
+   class="fixed bottom-6 right-6 z-50 flex items-center bg-emerald-600 text-white h-14 px-4 rounded-full shadow-[0_0_24px_rgba(5,150,105,0.35)] hover:bg-emerald-500 transition-all duration-300 group overflow-hidden">
+    <svg class="w-5 h-5 shrink-0 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 ease-in-out text-sm font-semibold whitespace-nowrap"
+          data-tr="Hızlı Proje Hattı" data-en="Quick Project Line">Hızlı Proje Hattı</span>
+</a>
+
+<!-- Scroll top -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Yukarı çık">
+    <i data-lucide="chevron-up" class="w-5 h-5 text-zinc-300"></i>
+</button>
+
+<!-- ════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════ -->
 <script>
-  lucide.createIcons();
+lucide.createIcons();
+
+/* ── Scroll top ── */
+window.addEventListener('scroll', () => {
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+});
+
+/* ── Mobile menu ── */
+function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+}
+
+/* ── Dil sistemi ── */
+let currentLang = localStorage.getItem('nf_lang') || 'tr';
+
+function updateLang() {
+    document.querySelectorAll('[data-tr]').forEach(el => {
+        const key = currentLang === 'en' ? 'data-en' : 'data-tr';
+        const val = el.getAttribute(key);
+        if (!val) return;
+        if (el.innerHTML && el.innerHTML.includes('<')) {
+            el.innerHTML = val;
+        } else {
+            el.textContent = val;
+        }
+    });
+    /* placeholder güncelle */
+    document.querySelectorAll('[data-ph-tr]').forEach(el => {
+        el.placeholder = currentLang === 'en' ? el.getAttribute('data-ph-en') : el.getAttribute('data-ph-tr');
+    });
+    /* select option güncelle */
+    document.querySelectorAll('select option[data-tr]').forEach(opt => {
+        opt.textContent = currentLang === 'en' ? opt.getAttribute('data-en') : opt.getAttribute('data-tr');
+    });
+    /* dil butonları */
+    ['langBtn','langBtnMob'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.textContent = currentLang === 'tr' ? 'EN' : 'TR';
+    });
+    /* html lang attr */
+    document.documentElement.lang = currentLang;
+}
+
+function toggleLanguage() {
+    currentLang = currentLang === 'tr' ? 'en' : 'tr';
+    localStorage.setItem('nf_lang', currentLang);
+    updateLang();
+}
+
+window.addEventListener('DOMContentLoaded', updateLang);
+
+/* ── Form submit ── */
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    /* Basit doğrulama */
+    let valid = true;
+
+    ['name','phone'].forEach(fieldId => {
+        const input = document.getElementById(fieldId);
+        const err   = input.closest('div').querySelector('.field-err');
+        if (!input.value.trim()) {
+            input.style.borderColor = '#ef4444';
+            if (err) err.classList.remove('hidden');
+            valid = false;
+        } else {
+            input.style.borderColor = '';
+            if (err) err.classList.add('hidden');
+        }
+    });
+
+    if (!valid) return;
+
+    /* KVKK kontrolü */
+    if (!document.getElementById('kvkk').checked) {
+        alert(currentLang === 'tr'
+            ? 'Lütfen KVKK onayını verin.'
+            : 'Please accept the privacy policy.');
+        return;
+    }
+
+    /* WhatsApp mesajı oluştur */
+    const name     = document.getElementById('name').value.trim();
+    const company  = document.getElementById('company').value.trim();
+    const phone    = document.getElementById('phone').value.trim();
+    const email    = document.getElementById('email').value.trim();
+    const service  = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+    const capacity = document.getElementById('capacity').options[document.getElementById('capacity').selectedIndex].text;
+    const message  = document.getElementById('message').value.trim();
+
+    const waText = [
+        `*NexFrigo Teklif Talebi*`,
+        `👤 İsim: ${name}`,
+        company  ? `🏢 Şirket: ${company}`  : '',
+        `📞 Tel: ${phone}`,
+        email    ? `✉️ E-posta: ${email}`    : '',
+        `🔧 Hizmet: ${service}`,
+        `📐 Alan: ${capacity}`,
+        message  ? `📝 Not: ${message}`      : '',
+    ].filter(Boolean).join('\n');
+
+    /* Simulate success (gerçek backend entegrasyonu için buraya API çağrısı eklenebilir) */
+    const overlay = document.getElementById('successOverlay');
+    overlay.classList.add('show');
+    lucide.createIcons();
+
+    /* WhatsApp'a yönlendir (isteğe bağlı — aktif etmek için yorum kaldırın) */
+    // window.open('https://wa.me/905383627763?text=' + encodeURIComponent(waText), '_blank');
+});
+
+function resetForm() {
+    document.getElementById('contactForm').reset();
+    document.getElementById('successOverlay').classList.remove('show');
+    ['name','phone'].forEach(id => {
+        const input = document.getElementById(id);
+        input.style.borderColor = '';
+        const err = input.closest('div').querySelector('.field-err');
+        if (err) err.classList.add('hidden');
+    });
+}
 </script>
-<!-- PREMIUM FOOTER BİTİŞİ -->
-
-    <script>
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-
-        let currentLang = localStorage.getItem('lang') || 'tr';
-        function updateDOM() {
-            document.querySelectorAll('[data-tr]').forEach(element => {
-                element.textContent = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-tr');
-            });
-            document.getElementById('langBtn').textContent = currentLang === 'tr' ? 'EN' : 'TR';
-            document.getElementById('langBtnMob').textContent = currentLang === 'tr' ? 'EN' : 'TR';
-        }
-        function toggleLanguage() {
-            currentLang = currentLang === 'tr' ? 'en' : 'tr';
-            localStorage.setItem('lang', currentLang);
-            updateDOM();
-        }
-        window.addEventListener('DOMContentLoaded', updateDOM);
-    </script>
 </body>
 </html>
