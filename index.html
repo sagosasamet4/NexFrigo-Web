@@ -375,109 +375,144 @@
 }
 </style>
 <!-- PREMIUM FOOTER BAŞLANGICI (KURUMSAL KİMLİKLEŞTİRİLMİŞ) -->
-<!-- ALTERNATİF B: ELİT SINIR ÇİZGİLİ FOOTER -->
-<footer class="bg-[#0d0d0d] text-slate-300 pt-8 font-sans w-full border-t border-zinc-800/60">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- ÜST BÖLÜM: Üçlü Güven ve Kalite Blokları -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-zinc-800/40">
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="cpu" class="w-10 h-10"></i>
+<!-- =========================================================================
+     GENEL KURUMSAL FOOTER BİLEŞENİ (TÜM SAYFALAR İÇİN ORTAK)
+     ========================================================================= -->
+<footer class="nexfrigo-global-footer">
+  <div class="footer-core-container">
+    <div class="footer-main-grid">
+      
+      <!-- 1. Sütun: Şirket Tanımı -->
+      <div class="footer-core-col">
+        <div class="footer-brand-identity">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4H12V8H4V4Z" fill="var(--core-blue)"/>
+            <path d="M8 10H16V14H8V10Z" fill="var(--core-blue)"/>
+            <path d="M12 16H20V20H12V16Z" fill="var(--core-blue)"/>
+          </svg>
+          <span class="brand-main-text">NEX<span class="brand-blue-text">FRIGO</span></span>
         </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">İleri Mühendislik</h4>
-          <p class="text-sm text-slate-400">Üst düzey otomasyonlu endüstriyel sistemler.</p>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="shield-check" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">2 Yıl Kesintisiz Garanti</h4>
-          <p class="text-sm text-slate-400">Tüm mekanik ve dijital kurulumlar koruma altında.</p>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <div class="p-4 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-          <i data-lucide="clock" class="w-10 h-10"></i>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold text-white">7/24 Teknik Servis</h4>
-          <p class="text-sm text-slate-400">Soğuk zincirin kırılmaması için anlık müdahale.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ORTA BÖLÜM: Kurumsal Linkler ve İletişim Havuzu -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 py-12">
-      <div class="lg:col-span-1 space-y-6">
-        <div class="flex items-center space-x-3">
-          <img src="nexfrigo logo.png" alt="NexFrigo Logo" class="h-8 w-auto object-contain">
-          <span class="text-2xl font-semibold tracking-wider text-white">
-            <span class="text-blue-500">NEX</span>FRIGO
-          </span>
-        </div>
-        <p class="text-sm text-slate-400 leading-relaxed">
+        <p class="brand-core-text">
           Endüstriyel iklimlendirme ve soğuk hava depoları alanında yüksek performanslı, enerji tasarruflu ve akıllı lojistik çözümler üreten teknoloji odaklı mühendislik firması.
         </p>
       </div>
 
-      <div>
-        <h3 class="text-white text-base font-semibold mb-6 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
-          Çözümlerimiz
-        </h3>
-        <ul class="space-y-3 text-sm">
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Soğuk Hava Deposu Kurulumu</a></li>
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Donuk & Şok Muhafaza</a></li>
-          <li><a href="projeler.html" class="hover:text-blue-400 transition-colors">Endüstriyel İklimlendirme</a></li>
-          <li><a href="surec.html" class="hover:text-blue-400 transition-colors">Süreçlerimiz</a></li>
+      <!-- 2. Sütun: Çözümler -->
+      <div class="footer-core-col">
+        <h3 class="core-col-title">ÇÖZÜMLERİMİZ</h3>
+        <ul class="core-links-list">
+          <li><a href="#">Soğuk Hava Deposu Kurulumu</a></li>
+          <li><a href="#">Donuk & Şok Muhafaza</a></li>
+          <li><a href="#">Endüstriyel İklimlendirme</a></li>
+          <li><a href="#">Süreçlerimiz</a></li>
         </ul>
       </div>
 
-      <div class="lg:col-span-2 space-y-6">
-        <h3 class="text-white text-base font-semibold mb-2 tracking-wide uppercase border-l-2 border-blue-500 pl-3">
-          Merkez & İletişim Bölümü
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <div class="flex items-start space-x-3 text-sm">
-              <i data-lucide="map-pin" class="w-5 h-5 text-blue-500 shrink-0 mt-0.5"></i>
-              <span>Başakşehir, İkitelli Organize Sanayi Bölgesi, İstanbul, Türkiye</span>
-            </div>
-            <div class="flex items-center space-x-3 text-sm">
-              <i data-lucide="mail" class="w-5 h-5 text-blue-500"></i>
-              <a href="mailto:info@nexfrigo.com" class="hover:text-blue-400">info@nexfrigo.com</a>
-            </div>
-          </div>
-          <div class="bg-zinc-900/40 p-4 rounded-xl border border-zinc-800/50 flex flex-col justify-center">
-            <span class="text-xs text-slate-400 uppercase tracking-wider">Hızlı Proje & Teklif Hattı</span>
-            <div class="flex items-center space-x-2 mt-1 text-white hover:text-blue-400 transition-colors">
-              <i data-lucide="phone" class="w-5 h-5 text-blue-500"></i>
-              <span class="text-lg font-mono font-bold">+90 (551) xxx xx xx</span>
-            </div>
+      <!-- 3. Sütun: Merkez Adres -->
+      <div class="footer-core-col">
+        <h3 class="core-col-title">MERKEZ & İLETİŞİM BÖLÜMÜ</h3>
+        <ul class="core-contact-info">
+          <li>
+            <span class="info-icon">📍</span>
+            <span>Başakşehir, İkitelli Organize Sanayi Bölgesi, İstanbul, Türkiye</span>
+          </li>
+          <li>
+            <span class="info-icon">✉️</span>
+            <a href="mailto:info@nexfrigo.com">info@nexfrigo.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4. Sütun: Hızlı Teklif Hattı -->
+      <div class="footer-core-col">
+        <div class="core-offer-card">
+          <span class="core-offer-label">HIZLI PROJE & TEKLİF HATTI</span>
+          <div class="core-phone-row">
+            <span class="phone-icon-svg">📞</span>
+            <a href="tel:+90551xxxxxxx" class="core-phone-link">+90 (551) xxx xx xx</a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
-  <!-- EN ALT TEK SATIRLIK BANT -->
-  <div class="bg-[#050505] py-8 border-t border-zinc-900 w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs gap-4">
-      <div class="flex items-center space-x-2 opacity-40 hover:opacity-70 transition-opacity">
-        <img src="nexfrigo logo.png" alt="NexFrigo" class="h-4 w-auto object-contain">
-        <span class="font-medium tracking-widest text-zinc-400">NEXFRIGO</span>
+  <!-- En Alt Telif & Yukarı Çıkış Alanı -->
+  <div class="footer-core-bottom">
+    <div class="footer-core-container bottom-core-flex">
+      <div class="bottom-passive-text">
+        <span>NEXFRIGO</span>
       </div>
-      <div class="font-mono text-zinc-600">
-        <p>© 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.</p>
-      </div>
+      <p class="core-copyright-text">
+        &copy; 2026 NexFrigo Industrial Air Conditioning. Tüm hakları saklıdır.
+      </p>
+      <a href="#" class="core-green-btn" aria-label="Yukarı Dön">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </a>
     </div>
   </div>
 </footer>
+
+<style>
+/* --- GENEL KURUMSAL FOOTER STİLLERİ --- */
+:root {
+  --core-bg-dark: #070708;
+  --core-bg-deep: #040405;
+  --core-card-bg: #0c0d0f;
+  --core-blue: #3b82f6;
+  --core-green: #0fa46a;
+  --core-border: #141416;
+}
+
+.nexfrigo-global-footer {
+  background-color: var(--core-bg-dark);
+  color: #9a9fa5;
+  font-family: 'Inter', sans-serif;
+  padding-top: 50px;
+  border-top: 1px solid var(--core-border);
+}
+.footer-core-container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.footer-main-grid { display: grid; grid-template-columns: 1.2fr 0.9fr 1.1fr 1fr; gap: 40px; padding-bottom: 40px; }
+
+.footer-brand-identity { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.brand-main-text { font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; }
+.brand-blue-text { color: var(--core-blue); }
+.brand-core-text { font-size: 14px; line-height: 1.6; color: #808389; }
+
+.core-col-title { font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 25px; position: relative; padding-left: 12px; }
+.core-col-title::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 3px; background-color: var(--core-blue); }
+
+.core-links-list, .core-contact-info { list-style: none; padding: 0; margin: 0; }
+.core-links-list li { margin-bottom: 12px; }
+.core-links-list a, .core-contact-info a { color: #9a9fa5; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.core-links-list a:hover, .core-contact-info a:hover { color: #ffffff; }
+.core-contact-info li { display: flex; gap: 12px; font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
+
+.core-offer-card { background-color: var(--core-card-bg); border: 1px solid var(--core-border); border-radius: 12px; padding: 24px; }
+.core-offer-label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 12px; }
+.core-phone-row { display: flex; align-items: center; gap: 10px; }
+.core-phone-link { font-size: 18px; font-weight: 800; color: #ffffff; text-decoration: none; }
+
+.footer-core-bottom { background-color: var(--core-bg-deep); border-top: 1px solid var(--core-border); padding: 20px 0; }
+.bottom-core-flex { display: flex; justify-content: space-between; align-items: center; }
+.bottom-passive-text { font-size: 13px; font-weight: 700; color: #24262b; letter-spacing: 1px; }
+.core-copyright-text { font-size: 12px; color: #4a4d54; }
+
+.core-green-btn {
+  display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+  background-color: var(--core-green); color: #ffffff; border-radius: 50%; text-decoration: none;
+  transition: transform 0.2s, filter 0.2s;
+}
+.core-green-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+@media (max-width: 1024px) { .footer-main-grid { grid-template-columns: 1fr 1fr; gap: 30px; } }
+@media (max-width: 640px) {
+  .footer-main-grid { grid-template-columns: 1fr; }
+  .bottom-core-flex { flex-direction: column; gap: 15px; text-align: center; }
+}
+</style>
 <script>
   lucide.createIcons();
 </script>
