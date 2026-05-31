@@ -179,6 +179,201 @@
         // Sayfa ilk yüklendiğinde hafızadaki dili oku ve uygula
         window.addEventListener('DOMContentLoaded', updateDOM);
     </script>
+    <!-- =========================================================================
+     ANA SAYFAYA ÖZEL: ÖZELLİK KARTLARI & REFERANS LOGO ÇARKI
+     ========================================================================= -->
+<section class="homepage-exclusive-section">
+  <div class="addon-container">
+    
+    <!-- Üst Kısım: 3'lü Profesyonel Güven Kartları -->
+    <div class="trust-cards-grid">
+      <div class="trust-card">
+        <div class="trust-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <rect x="9" y="9" width="6" height="6"></rect>
+            <line x1="9" y1="1" x2="9" y2="3"></line>
+            <line x1="15" y1="1" x2="15" y2="3"></line>
+            <line x1="9" y1="21" x2="9" y2="23"></line>
+            <line x1="15" y1="21" x2="15" y2="23"></line>
+            <line x1="20" y1="9" x2="22" y2="9"></line>
+            <line x1="20" y1="15" x2="22" y2="15"></line>
+            <line x1="1" y1="9" x2="3" y2="9"></line>
+            <line x1="1" y1="15" x2="3" y2="15"></line>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <h4>İleri Mühendislik</h4>
+          <p>Üst düzey otomasyonlu endüstriyel sistemler.</p>
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <h4>2 Yıl Kesintisiz Garanti</h4>
+          <p>Tüm mekanik ve dijital kurulumlar koruma altında.</p>
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <h4>7/24 Teknik Servis</h4>
+          <p>Soğuk zincirin kırılmaması için anlık müdahale.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alt Kısım: Sonsuz Döngülü Estetik Referans Çarkı (CSS Marquee) -->
+    <div class="reference-marquee-wrapper">
+      <div class="marquee-title">REFERANSLARIMIZ</div>
+      <div class="marquee-track">
+        <!-- Orijinal Logo Grubu -->
+        <div class="marquee-content">
+          <img src="logo-nobel.png" alt="Nobel İlaç">
+          <img src="logo-sanovel.png" alt="Sanovel">
+          <img src="logo-file.png" alt="File Market">
+          <img src="logo-nobel.png" alt="Nobel İlaç">
+          <img src="logo-sanovel.png" alt="Sanovel">
+          <img src="logo-file.png" alt="File Market">
+        </div>
+        <!-- Döngünün Kusursuz Olması İçin Kopyalanan İkiz Grup (Kutuyu Doldurur) -->
+        <div class="marquee-content" aria-hidden="true">
+          <img src="logo-nobel.png" alt="Nobel İlaç">
+          <img src="logo-sanovel.png" alt="Sanovel">
+          <img src="logo-file.png" alt="File Market">
+          <img src="logo-nobel.png" alt="Nobel İlaç">
+          <img src="logo-sanovel.png" alt="Sanovel">
+          <img src="logo-file.png" alt="File Market">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* --- ANA SAYFAYA ÖZEL EKSTRE BİLEŞEN STİLLERİ --- */
+.homepage-exclusive-section {
+  background-color: #070708;
+  padding: 60px 0 20px 0;
+}
+.addon-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Güven Kartları Tasarımı */
+.trust-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+.trust-card {
+  background-color: #0c0d0f;
+  border: 1px solid #141416;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.trust-card:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+}
+.trust-icon-box {
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.trust-content h4 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+.trust-content p {
+  color: #808389;
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Sonsuz Çark (Marquee) Mekanizması */
+.reference-marquee-wrapper {
+  background-color: #0c0d0f;
+  border: 1px solid #141416;
+  border-radius: 16px;
+  padding: 30px 0;
+  overflow: hidden;
+  position: relative;
+}
+.marquee-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #4a4d54;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.marquee-track {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee-content {
+  display: flex;
+  gap: 80px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  animation: nexMarquee 25s linear infinite;
+}
+.marquee-content img {
+  height: 42px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.8);
+  transition: filter 0.3s ease;
+}
+.marquee-content img:hover {
+  filter: grayscale(0) brightness(1);
+}
+
+/* Duraksız Akış Animasyonu */
+@keyframes nexMarquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Mobil Uyum */
+@media (max-width: 991px) {
+  .trust-cards-grid { grid-template-columns: 1fr; gap: 16px; }
+  .marquee-content { gap: 40px; }
+}
+</style>
 <!-- PREMIUM FOOTER BAŞLANGICI (KURUMSAL KİMLİKLEŞTİRİLMİŞ) -->
 <!-- ALTERNATİF B: ELİT SINIR ÇİZGİLİ FOOTER -->
 <footer class="bg-[#0d0d0d] text-slate-300 pt-8 font-sans w-full border-t border-zinc-800/60">
